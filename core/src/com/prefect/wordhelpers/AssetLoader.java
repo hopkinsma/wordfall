@@ -14,11 +14,11 @@ public class AssetLoader {
 	public static void load(){
 		
 		texture = new Texture(Gdx.files.internal("data/backdropIdea.jpg"));
-		texture.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+		//texture.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		
 		//tileTexture = new Texture(Gdx.files.internal("data/tiles.jpg"));		
 		
-		bg = new TextureRegion(texture, 43,43,2,2);
+		bg = new TextureRegion(texture, 0,0,400,300);
 		bg.flip(false, true);
 		
 	}

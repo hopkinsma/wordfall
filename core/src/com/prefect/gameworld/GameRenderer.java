@@ -81,6 +81,8 @@ public class GameRenderer {
         // transparency.
         batcher.disableBlending();
         
+        batcher.draw(bg, 0, 0, 640, 480);
+        
         
         batcher.enableBlending();
 		
