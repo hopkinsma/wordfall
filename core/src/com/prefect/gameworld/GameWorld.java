@@ -5,7 +5,7 @@ public class GameWorld {
 	
 	public FallingLetter gameLetters[];
 	public Player thePlayer;
-	public GameButton startButton;
+	public static GameButton startButton;
 	public static boolean startScreen, playScreen, endScreen;
 	
 	public GameWorld(int midPointY){

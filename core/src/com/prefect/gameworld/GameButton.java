@@ -28,7 +28,23 @@ public class GameButton {
 		return false;
 	    }
 	}
+	
+	public int getX() {
+		return xPos;
+	}
+	
+	public int getY() {
+		return yPos;
+	}
 
+	public int getHeight() {
+		return height;
+	}
+	
+	public int getWidth() {
+		return width;
+	}
+	
 	public boolean isLight() {
 	    return highlighted;
 	}

@@ -69,6 +69,7 @@ public class GameRenderer {
 		// draw background color
 		shapeRenderer.setColor(80 / 255.0f, 80 / 255.0f, 100 / 255.0f, 1);
 		shapeRenderer.rect(0, 0, gameWidth,gameHeight);
+		
 
         // End ShapeRenderer
         shapeRenderer.end();
@@ -81,15 +82,22 @@ public class GameRenderer {
         // transparency.
         batcher.disableBlending();
         
-        if (GameWorld.startScreen) {
+        //if (GameWorld.startScreen) {
         	batcher.draw(bg, 0, 0, 640, 480);
-        }
+        //}
         
         batcher.enableBlending();
 		
         //batcher.draw
         // End SpriteBatch
         batcher.end();	
+        
+        shapeRenderer.begin(ShapeType.Filled);
+        if (GameWorld.startScreen) {
+			shapeRenderer.setColor(200 / 255.0f, 80 / 255.0f, 200 / 255.0f, 1);
+			shapeRenderer.rect(GameWorld.startButton.getX(), GameWorld.startButton.getY(), GameWorld.startButton.getWidth(),GameWorld.startButton.getHeight());
+		}
+        shapeRenderer.end();
 	}
 
 	public static int getGameHeight() {
