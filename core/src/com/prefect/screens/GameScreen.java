@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.prefect.gameworld.GameRenderer;
 import com.prefect.gameworld.GameWorld;
+import com.prefect.wordhelpers.InputHandler;
 
 public class GameScreen implements Screen{
 	
@@ -23,6 +24,8 @@ public class GameScreen implements Screen{
 
 		world = new GameWorld(midPointY);
 		renderer = new GameRenderer(world, (int) gameHeight, (int) gameWidth, midPointY);
+		
+		Gdx.input.setInputProcessor(new InputHandler());
 		
 	}
 	

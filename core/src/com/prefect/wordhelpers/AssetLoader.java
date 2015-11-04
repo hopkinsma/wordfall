@@ -32,6 +32,7 @@ public class AssetLoader {
 		
 		
 		//read in the dictionary
+		wordDict = new WordList();
 		FileHandle handle = Gdx.files.internal("data/dict.txt");
 		
 		//String  thisLine = null;
@@ -47,7 +48,7 @@ public class AssetLoader {
 			        endof = true;
 			    }
 			    else {
-			        //wordDict.addWord(inLine);
+			        wordDict.addWord(inLine);
 			    	System.out.println(inLine);
 			    }
 			}      
