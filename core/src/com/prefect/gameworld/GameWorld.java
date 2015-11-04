@@ -4,14 +4,14 @@ package com.prefect.gameworld;
 public class GameWorld {
 	
 	public FallingLetter gameLetters[];
-	public Player thePlayer;
+	public static Player thePlayer;
 	public static GameButton startButton;
 	public static boolean startScreen, playScreen, endScreen;
 	
 	public GameWorld(int midPointY){
 		gameLetters = new FallingLetter[6];
 		thePlayer = new Player("Player 1");
-		startButton = new GameButton(20, 20, 100, 20);
+		startButton = new GameButton(270, 190, 100, 100);
 		startScreen = true;
 		playScreen = false;
 		endScreen = false;

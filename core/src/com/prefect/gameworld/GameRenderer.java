@@ -1,7 +1,9 @@
 package com.prefect.gameworld;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -18,6 +20,7 @@ public class GameRenderer {
 	public static OrthographicCamera cam;
 	private ShapeRenderer shapeRenderer;
 	private SpriteBatch batcher;
+	private BitmapFont font;
 	
 	private Sprite bg;
 	
@@ -39,7 +42,8 @@ public class GameRenderer {
 		cam.setToOrtho(true, gameWidth, gameHeight);
 
 		//the following parameters are set as the same size as the desktop
-		viewport = new FillViewport(672, 672, cam);
+		//viewport = new FillViewport(672, 672, cam);
+		viewport = new FillViewport(640, 480, cam);
 		viewport.apply();
 		cam.position.set(cam.viewportWidth/2, cam.viewportHeight/2, 0);
 		
@@ -86,18 +90,27 @@ public class GameRenderer {
         	batcher.draw(bg, 0, 0, 640, 480);
         //}
         
+        	
         batcher.enableBlending();
-		
-        //batcher.draw
+        
+        //draw the text
+        font = new BitmapFont(true);
+        font.setColor(Color.RED);
+        font.draw(batcher, GameWorld.thePlayer.getName(), 20, 460);
+        font.draw(batcher, "Life: " + GameWorld.thePlayer.getLife(), 580, 460);
         // End SpriteBatch
         batcher.end();	
         
+        //draw the buttons
         shapeRenderer.begin(ShapeType.Filled);
         if (GameWorld.startScreen) {
 			shapeRenderer.setColor(200 / 255.0f, 80 / 255.0f, 200 / 255.0f, 1);
 			shapeRenderer.rect(GameWorld.startButton.getX(), GameWorld.startButton.getY(), GameWorld.startButton.getWidth(),GameWorld.startButton.getHeight());
 		}
         shapeRenderer.end();
+        
+        //draw text
+        
 	}
 
 	public static int getGameHeight() {

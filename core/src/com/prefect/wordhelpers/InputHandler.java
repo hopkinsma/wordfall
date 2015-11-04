@@ -13,14 +13,13 @@ public class InputHandler implements InputProcessor {
 	@Override
 	public boolean keyDown(int keycode) {
 		System.out.println("Keypress:" + keycode);
-		GameWorld.startScreen = false;
+		//GameWorld.startScreen = false;
 		return false;
 	}
 
 	@Override
 	public boolean keyUp(int keycode) {
 		// TODO Auto-generated method stub
-		GameWorld.startScreen = true;
 		return false;
 	}
 
@@ -33,6 +32,7 @@ public class InputHandler implements InputProcessor {
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {	
 		if (GameWorld.startButton.containsPoint(screenX, screenY)) {
 			GameWorld.startScreen = !GameWorld.startScreen;
+			System.out.println("startButton clicked!");
 		}
 		return true;
 	}

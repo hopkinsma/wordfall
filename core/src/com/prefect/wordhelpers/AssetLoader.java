@@ -27,7 +27,7 @@ public class AssetLoader {
 		
 		//tileTexture = new Texture(Gdx.files.internal("data/tiles.jpg"));		
 		
-		bg = new TextureRegion(texture, 0,0,400,300);
+		bg = new TextureRegion(texture, 0,0,640,480);
 		bg.flip(false, true);
 		
 		
