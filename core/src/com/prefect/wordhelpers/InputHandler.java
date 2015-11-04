@@ -1,6 +1,7 @@
 package com.prefect.wordhelpers;
 
 import com.badlogic.gdx.InputProcessor;
+import com.prefect.gameworld.GameWorld;
 import com.badlogic.gdx.Input.Keys;
 
 public class InputHandler implements InputProcessor {
@@ -12,12 +13,14 @@ public class InputHandler implements InputProcessor {
 	@Override
 	public boolean keyDown(int keycode) {
 		System.out.println("Keypress:" + keycode);
+		GameWorld.startScreen = false;
 		return false;
 	}
 
 	@Override
 	public boolean keyUp(int keycode) {
 		// TODO Auto-generated method stub
+		GameWorld.startScreen = true;
 		return false;
 	}
 
