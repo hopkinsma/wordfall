@@ -4,12 +4,21 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.prefect.gameworld.WordList;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.InputStream;
+import com.badlogic.gdx.files.FileHandle;
+import java.io.InputStreamReader;
+
 
 public class AssetLoader {
 	
 	public static Texture texture, tileTexture;
 	
 	public static TextureRegion bg;
+	public static WordList wordDict;
 	
 	public static void load(){
 		
@@ -20,6 +29,31 @@ public class AssetLoader {
 		
 		bg = new TextureRegion(texture, 0,0,400,300);
 		bg.flip(false, true);
+		
+		
+		//read in the dictionary
+		FileHandle handle = Gdx.files.internal("data/dict.txt");
+		
+		//String  thisLine = null;
+		try{
+			//FileReader fileReader = new FileReader(Gdx.files.internal("data/dict.txt"));
+			//InputStreamReader isr = new InputStreamReader(fis);
+			BufferedReader br = new BufferedReader(handle.reader());
+			boolean endof = false;
+			String inLine = null;
+			while (!endof) {
+			    inLine = br.readLine();
+			    if (inLine == null) {
+			        endof = true;
+			    }
+			    else {
+			        //wordDict.addWord(inLine);
+			    	System.out.println(inLine);
+			    }
+			}      
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		
 	}
 	
