@@ -1,0 +1,19 @@
+package com.prefect.gameworld;
+
+
+public class GameWorld {
+	
+	public FallingLetter gameLetters[];
+	public Player thePlayer;
+	public GameButton startButton;
+	
+	public GameWorld(int midPointY){
+		gameLetters = new FallingLetter[6];
+		
+	}
+
+	public void update(float delta) {
+		
+	}
+	
+}
