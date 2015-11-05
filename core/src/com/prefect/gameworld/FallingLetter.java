@@ -8,7 +8,7 @@ public class FallingLetter {
 	float xPos, yPos;
 	float ceiling = Gdx.graphics.getWidth() * .06f;
 	float floor = Gdx.graphics.getHeight();
-	int sideLength = 30;
+	float sideLength = Gdx.graphics.getWidth() * 0.5f;
 	char myLetter;
 	
 	public FallingLetter(char letter, int x, int speed) {

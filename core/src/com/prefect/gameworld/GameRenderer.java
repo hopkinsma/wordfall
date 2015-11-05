@@ -103,8 +103,8 @@ public class GameRenderer {
         } else if (GameWorld.playScreen) {
         	font.draw(batcher, GameWorld.thePlayer.getName(), Gdx.graphics.getWidth() * 0.03f, Gdx.graphics.getHeight() * 0.96f);
         	font.draw(batcher, "Life: " + GameWorld.thePlayer.getLife(), Gdx.graphics.getWidth() * 0.85f, Gdx.graphics.getHeight() * 0.96f);
-        	font.draw(batcher, "Word: " + GameWorld.word, Gdx.graphics.getWidth() * 0.31f, Gdx.graphics.getHeight() * 0.96f);
-        	font.draw(batcher, "Score: " + GameWorld.thePlayer.getScore(), Gdx.graphics.getWidth() * 0.31f, Gdx.graphics.getHeight() * 0.04f);
+        	font.draw(batcher, "Word: " + GameWorld.word, Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.96f);
+        	font.draw(batcher, "Score: " + GameWorld.thePlayer.getScore(), Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.04f);
         	for (int x = 0; x < GameWorld.gameLetters.length; x++) {
         		String letter = Character.toString(GameWorld.gameLetters[x].value());
         		if (GameWorld.gameLetters[x].fallStatus()) {

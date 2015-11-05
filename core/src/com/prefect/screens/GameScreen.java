@@ -40,12 +40,7 @@ public class GameScreen implements Screen{
 	//controls the resizing of the different environments
     @Override
     public void resize(int width, int height) {
-    	System.out.println("width: " + width);
-    	System.out.println("height: " + height);
         GameRenderer.viewport.update(width, height);
-        System.out.println("check");
-    	System.out.println("GameRenderer.cam.viewportWidth: " + GameRenderer.cam.viewportWidth);
-    	System.out.println("GameRenderer.cam.viewportHeight: " + GameRenderer.cam.viewportHeight);
         GameRenderer.cam.position.set(GameRenderer.cam.viewportWidth / 2, GameRenderer.cam.viewportHeight / 2, 0);
     }
 
