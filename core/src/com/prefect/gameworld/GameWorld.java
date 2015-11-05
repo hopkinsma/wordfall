@@ -44,9 +44,9 @@ public class GameWorld {
 			    			for (int i = 0; i < gameLetters.length; i++) {
 			    				gameLetters[i].deselect();
 			    			}
-			    			//word = "";
 			    		}
 			    		gameLetters[x].kill();
+			    		word = "";
 			    	}
 				}
 		    }

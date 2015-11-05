@@ -5,7 +5,7 @@ public class FallingLetter {
 	float mySpeed;
 	int xPos, yPos;
 	int ceiling = 40;
-	int floor = 270;
+	int floor = 400;
 	int sideLength = 30;
 	char myLetter;
 	

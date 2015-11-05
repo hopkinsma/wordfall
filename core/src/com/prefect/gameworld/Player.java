@@ -9,7 +9,7 @@ public class Player {
 		life = 100;
 		words = 0;
 		score = 0;
-		level = 2;
+		level = 1;
 		name = s;
 		checkedScore = false;
 	}
