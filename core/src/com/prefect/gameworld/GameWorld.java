@@ -35,7 +35,7 @@ public class GameWorld {
 			    		thePlayer.damaged(10);
 			    		if (thePlayer.getLife() <= 0) { //player is dead, check top scores and change screen
 			    			playScreen = false;
-			    			startScreen = true;
+			    			endScreen = true;
 			    			System.out.println("You died, Sucka.");
 			    		}
 			    		if (gameLetters[x].checkSelected()) {

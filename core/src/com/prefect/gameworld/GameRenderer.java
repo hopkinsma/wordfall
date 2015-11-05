@@ -107,6 +107,8 @@ public class GameRenderer {
         		String letter = Character.toString(GameWorld.gameLetters[x].value());
         		font.draw(batcher, letter, GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
         	}
+        } else if (GameWorld.endScreen) {
+        	font.draw(batcher, "You died, Sucka.", 300, 220);
         }
         // End SpriteBatch
         batcher.end();	

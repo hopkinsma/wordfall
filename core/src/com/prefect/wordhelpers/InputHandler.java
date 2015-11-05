@@ -60,6 +60,11 @@ public class InputHandler implements InputProcessor {
 				System.out.println("Returning to start screen");
 			}
 		}
+		//aaaaan on the end screen
+		else if (GameWorld.endScreen) {
+			GameWorld.endScreen = false;
+			GameWorld.startScreen = true;
+		}
 		return true;
 	}
 
