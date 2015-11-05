@@ -1,16 +1,12 @@
 package com.prefect.wordhelpers;
 
+import java.io.BufferedReader;
+
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.prefect.gameworld.WordList;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.InputStream;
-import com.badlogic.gdx.files.FileHandle;
-import java.io.InputStreamReader;
 
 
 public class AssetLoader {
@@ -22,12 +18,12 @@ public class AssetLoader {
 	
 	public static void load(){
 		
-		texture = new Texture(Gdx.files.internal("data/backdropIdea.jpg"));
+		texture = new Texture(Gdx.files.internal("data/wordfall2.jpg"));
 		//texture.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		
 		//tileTexture = new Texture(Gdx.files.internal("data/tiles.jpg"));		
 		
-		bg = new TextureRegion(texture, 0,0,640,480);
+		bg = new TextureRegion(texture, 0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
 		bg.flip(false, true);
 		
 		

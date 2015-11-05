@@ -7,6 +7,9 @@ import com.prefect.wordfall.WordFallGame;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		//window size of desktop app is set here
+		config.height = 800;
+		config.width = 550;
 		new LwjglApplication(new WordFallGame(), config);
 	}
 }

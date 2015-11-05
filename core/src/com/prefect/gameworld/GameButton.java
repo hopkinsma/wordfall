@@ -1,11 +1,12 @@
 package com.prefect.gameworld;
 
 public class GameButton {
+	
 	boolean highlighted = false;;
-	int xPos, yPos;
+	float xPos, yPos;
 	int height, width;
 	
-	public GameButton(int x, int y, int h, int w) {
+	public GameButton(float x, float y, int h, int w) {
 	    xPos = x;
 	    yPos = y;
 	    height = h;
@@ -29,11 +30,11 @@ public class GameButton {
 	    }
 	}
 	
-	public int getX() {
+	public float getX() {
 		return xPos;
 	}
 	
-	public int getY() {
+	public float getY() {
 		return yPos;
 	}
 

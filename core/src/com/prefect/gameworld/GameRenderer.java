@@ -39,11 +39,9 @@ public class GameRenderer {
 		bg = new Sprite(AssetLoader.bg);	
 		
 		cam = new OrthographicCamera();
-		cam.setToOrtho(true, gameWidth, gameHeight);
+		cam.setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
-		//the following parameters are set as the same size as the desktop
-		//viewport = new FillViewport(672, 672, cam);
-		viewport = new FillViewport(640, 480, cam);
+		viewport = new FillViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), cam);
 		viewport.apply();
 		cam.position.set(cam.viewportWidth/2, cam.viewportHeight/2, 0);
 		
@@ -87,7 +85,9 @@ public class GameRenderer {
         batcher.disableBlending();
         
         //if (GameWorld.startScreen) {
-        	batcher.draw(bg, 0, 0, 640, 480);
+        	//batcher.draw(bg, 0, 0, 640, 480);
+        	//all of the following ratios are determined by these screen settings
+        	batcher.draw(bg, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         //}
         
         	
@@ -97,14 +97,14 @@ public class GameRenderer {
         font = new BitmapFont(true);
         font.setColor(Color.RED);
         if (GameWorld.startScreen) {
-        	font.draw(batcher, "Cool start screen here", 300, 220);
+        	font.draw(batcher, "Cool start screen here", Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
         } else if (GameWorld.levScreen) {
-        	font.draw(batcher, "Click to start level", 300, 220);
+        	font.draw(batcher, "Click to start level", Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
         } else if (GameWorld.playScreen) {
-        	font.draw(batcher, GameWorld.thePlayer.getName(), 20, 460);
-        	font.draw(batcher, "Life: " + GameWorld.thePlayer.getLife(), 580, 460);
-        	font.draw(batcher, "Word: " + GameWorld.word, 200, 460);
-        	font.draw(batcher, "Score: " + GameWorld.thePlayer.getScore(), 200, 20);
+        	font.draw(batcher, GameWorld.thePlayer.getName(), Gdx.graphics.getWidth() * 0.03f, Gdx.graphics.getHeight() * 0.96f);
+        	font.draw(batcher, "Life: " + GameWorld.thePlayer.getLife(), Gdx.graphics.getWidth() * 0.85f, Gdx.graphics.getHeight() * 0.96f);
+        	font.draw(batcher, "Word: " + GameWorld.word, Gdx.graphics.getWidth() * 0.31f, Gdx.graphics.getHeight() * 0.96f);
+        	font.draw(batcher, "Score: " + GameWorld.thePlayer.getScore(), Gdx.graphics.getWidth() * 0.31f, Gdx.graphics.getHeight() * 0.04f);
         	for (int x = 0; x < GameWorld.gameLetters.length; x++) {
         		String letter = Character.toString(GameWorld.gameLetters[x].value());
         		if (GameWorld.gameLetters[x].fallStatus()) {
@@ -112,7 +112,7 @@ public class GameRenderer {
         		}
         	}
         } else if (GameWorld.endScreen) {
-        	font.draw(batcher, "You died, Sucka.", 300, 220);
+        	font.draw(batcher, "You died, Sucka.", Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
         }
         // End SpriteBatch
         batcher.end();	

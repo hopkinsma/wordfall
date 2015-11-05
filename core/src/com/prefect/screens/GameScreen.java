@@ -11,7 +11,7 @@ public class GameScreen implements Screen{
 	private GameWorld world;
 	private GameRenderer renderer;
 	private float runTime;
-	int count = 0;
+	
 	
 	public GameScreen() {
 		
@@ -35,7 +35,6 @@ public class GameScreen implements Screen{
 		runTime += delta;
 		world.update(delta + GameWorld.thePlayer.getLevel());
 		renderer.render(runTime);
-		count++;
 	}
 	
 	//controls the resizing of the different environments

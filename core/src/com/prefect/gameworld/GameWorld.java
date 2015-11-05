@@ -1,5 +1,6 @@
 package com.prefect.gameworld;
 
+import com.badlogic.gdx.Gdx;
 import com.prefect.wordhelpers.AssetLoader;
 
 public class GameWorld {
@@ -12,7 +13,7 @@ public class GameWorld {
 	
 	public GameWorld(int midPointY){
 		thePlayer = new Player("Player 1");
-		startButton = new GameButton(270, 190, 100, 100);
+		startButton = new GameButton(Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46F, 100, 100);
 		startScreen = true;
 		playScreen = false;
 		endScreen = false;

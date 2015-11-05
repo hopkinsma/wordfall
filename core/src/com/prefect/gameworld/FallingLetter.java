@@ -1,34 +1,36 @@
 package com.prefect.gameworld;
 
+import com.badlogic.gdx.Gdx;
+
 public class FallingLetter {
 	boolean isSelected, isFalling;
 	float mySpeed;
-	int xPos, yPos;
-	int ceiling = 40;
-	int floor = 400;
+	float xPos, yPos;
+	float ceiling = Gdx.graphics.getWidth() * .06f;
+	float floor = Gdx.graphics.getHeight();
 	int sideLength = 30;
 	char myLetter;
 	
 	public FallingLetter(char letter, int x, int speed) {
-	isFalling = true;
-	myLetter = letter;
-	xPos = x;
-	yPos = ceiling;
-	mySpeed = speed;
+		isFalling = true;
+		myLetter = letter;
+		xPos = x;
+		yPos = ceiling;
+		mySpeed = speed;
 	}
 
 	public FallingLetter(char letter, int x, int y, float speed) {
-	myLetter = letter;
-	xPos = x;
-	yPos = y;
-	mySpeed = speed;
+		myLetter = letter;
+		xPos = x;
+		yPos = y;
+		mySpeed = speed;
 	}
 
-	public int getX() {
+	public float getX() {
 		return xPos;
 	}
 
-	public int getY() {
+	public float getY() {
 		return yPos;
 	}
 
@@ -73,7 +75,8 @@ public class FallingLetter {
 	
 	public boolean checkClick(int x, int y) {
 		if ((x > xPos) && (x < (xPos + sideLength))) {
-			if ((y > yPos) && (y < (yPos + sideLength))) {					    return true;
+			if ((y > yPos) && (y < (yPos + sideLength))) {					    
+				return true;
 			}
 			else {
 			    return false;
