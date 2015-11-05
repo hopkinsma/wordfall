@@ -16,15 +16,37 @@ public class InputHandler implements InputProcessor {
 	public boolean keyDown(int keycode) {
 		//System.out.println("Keypress:" + keycode);
 		//GameWorld.startScreen = false;
+		System.out.println(Keys.toString(keycode));
 		switch (keycode) {
-		case Keys.A:
-			System.out.println("A pressed");
+		case Keys.ENTER:
+			if (AssetLoader.wordDict.listContains(GameWorld.word)) {
+			    GameWorld.thePlayer.scored(25 * GameWorld.word.length());
+			    if (GameWorld.word.length() == GameWorld.gameLetters.length) {
+			        GameWorld.thePlayer.giveLife(5);
+			    }
+			    GameWorld.word = "";
+			    for (int i = 0; i < GameWorld.gameLetters.length; i++) {
+			        if (GameWorld.gameLetters[i].checkSelected()) {
+				    GameWorld.gameLetters[i].kill();
+			        }
+			    }
+			}
 			break;
-		case Keys.B:
-			System.out.println("B pressed");
+		case Keys.BACKSPACE:
+			for (int i = 0; i < GameWorld.gameLetters.length; i++) {
+	            GameWorld.gameLetters[i].deselect();
+			}
+			GameWorld.word = "";
 			break;
-		case Keys.C:
+		default:
 			System.out.println("C pressed");
+			for (int i = 0; i < GameWorld.gameLetters.length; i++) {
+			    if ((Character.toString(GameWorld.gameLetters[i].value()).equalsIgnoreCase(Keys.toString(keycode))) && (GameWorld.gameLetters[i].fallStatus()) && (!GameWorld.gameLetters[i].checkSelected())) {
+			    	GameWorld.gameLetters[i].select();
+			    	Character add = GameWorld.gameLetters[i].value();
+			    	GameWorld.word = GameWorld.word.concat(add.toString());
+			    }
+			}
 			break;
 		}
 		return false;
@@ -38,18 +60,6 @@ public class InputHandler implements InputProcessor {
 
 	@Override
 	public boolean keyTyped(char character) {
-		switch (character) {
-		case 'a':
-			System.out.println("A pressed");
-			break;
-		case 'b':
-			System.out.println("B pressed");
-			break;
-		case 'c':
-			System.out.println("C pressed");
-			break;
-		}
-		
 		return false;
 	}
 

@@ -104,6 +104,7 @@ public class GameRenderer {
         	font.draw(batcher, GameWorld.thePlayer.getName(), 20, 460);
         	font.draw(batcher, "Life: " + GameWorld.thePlayer.getLife(), 580, 460);
         	font.draw(batcher, "Word: " + GameWorld.word, 200, 460);
+        	font.draw(batcher, "Score: " + GameWorld.thePlayer.getScore(), 200, 20);
         	for (int x = 0; x < GameWorld.gameLetters.length; x++) {
         		String letter = Character.toString(GameWorld.gameLetters[x].value());
         		font.draw(batcher, letter, GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
