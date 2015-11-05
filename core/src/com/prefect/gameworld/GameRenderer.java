@@ -107,7 +107,9 @@ public class GameRenderer {
         	font.draw(batcher, "Score: " + GameWorld.thePlayer.getScore(), 200, 20);
         	for (int x = 0; x < GameWorld.gameLetters.length; x++) {
         		String letter = Character.toString(GameWorld.gameLetters[x].value());
-        		font.draw(batcher, letter, GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
+        		if (GameWorld.gameLetters[x].fallStatus()) {
+        			font.draw(batcher, letter, GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
+        		}
         	}
         } else if (GameWorld.endScreen) {
         	font.draw(batcher, "You died, Sucka.", 300, 220);

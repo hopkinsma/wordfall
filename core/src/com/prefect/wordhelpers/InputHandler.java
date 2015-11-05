@@ -24,13 +24,13 @@ public class InputHandler implements InputProcessor {
 			    if (GameWorld.word.length() == GameWorld.gameLetters.length) {
 			        GameWorld.thePlayer.giveLife(5);
 			    }
-			    GameWorld.word = "";
 			    for (int i = 0; i < GameWorld.gameLetters.length; i++) {
 			        if (GameWorld.gameLetters[i].checkSelected()) {
 				    GameWorld.gameLetters[i].kill();
 			        }
 			    }
 			}
+			GameWorld.word = "";
 			break;
 		case Keys.BACKSPACE:
 			for (int i = 0; i < GameWorld.gameLetters.length; i++) {
