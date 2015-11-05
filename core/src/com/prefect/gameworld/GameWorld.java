@@ -8,6 +8,7 @@ public class GameWorld {
 	public static Player thePlayer;
 	public static GameButton startButton;
 	public static boolean startScreen, levScreen, playScreen, endScreen;
+	public static String word;
 	
 	public GameWorld(int midPointY){
 		thePlayer = new Player("Player 1");
@@ -16,6 +17,7 @@ public class GameWorld {
 		playScreen = false;
 		endScreen = false;
 		levScreen = false;
+		word = "";
 	}
 
 	public void update(float delta) {

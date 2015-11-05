@@ -54,11 +54,19 @@ public class InputHandler implements InputProcessor {
 		}
 		//and do another on the play screen
 		else if (GameWorld.playScreen) {
-			if (GameWorld.startButton.containsPoint(screenX, screenY)) {
-				GameWorld.playScreen = false;
-				GameWorld.startScreen = true;
-				System.out.println("Returning to start screen");
-			}
+			for (int i = 0; i < GameWorld.gameLetters.length; i++) {
+				if (GameWorld.gameLetters[i].checkClick(screenX, screenY)) {
+			    	if (GameWorld.gameLetters[i].fallStatus()) {
+						if (!GameWorld.gameLetters[i].checkSelected()) {
+				    		GameWorld.gameLetters[i].select();
+			            	GameWorld.word = GameWorld.word.concat(GameWorld.gameLetters[i].toString());
+						}
+						else {
+				    		//the letter is already selected. deselect letter maybe?
+						}
+			    	}
+				}
+		    }
 		}
 		//aaaaan on the end screen
 		else if (GameWorld.endScreen) {

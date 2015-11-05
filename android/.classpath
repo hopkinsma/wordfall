@@ -11,6 +11,6 @@
 	<classpathentry kind="lib" path="lib/gdx-box2d-1.7.1.jar"/>
 	<classpathentry kind="lib" path="lib/gdx-controllers-1.7.1.jar"/>
 	<classpathentry kind="lib" path="lib/gdx-controllers-android-1.7.1.jar"/>
-	<classpathentry kind="src" path="/WordFall-core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/core"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

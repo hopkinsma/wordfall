@@ -20,7 +20,6 @@ INDEX VERSION 1.127+/Users/mikey/ldchallenge/wordfall/.metadata/.plugins/org.ecl
 2613257595.index
 1905938284.index
 746748339.index
-3480884635.index
 1271342938.index
 220761869.index
 3823890134.index
