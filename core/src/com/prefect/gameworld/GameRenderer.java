@@ -97,7 +97,7 @@ public class GameRenderer {
         font = new BitmapFont(true);
         font.setColor(Color.RED);
         if (GameWorld.startScreen) {
-        	
+        	font.draw(batcher, "Cool start screen here", 300, 220);
         } else if (GameWorld.levScreen) {
         	font.draw(batcher, "Click to start level", 300, 220);
         } else if (GameWorld.playScreen) {
@@ -112,12 +112,12 @@ public class GameRenderer {
         batcher.end();	
         
         //draw the buttons
-        shapeRenderer.begin(ShapeType.Filled);
-        if (GameWorld.startScreen) {
-			shapeRenderer.setColor(200 / 255.0f, 80 / 255.0f, 200 / 255.0f, 1);
-			shapeRenderer.rect(GameWorld.startButton.getX(), GameWorld.startButton.getY(), GameWorld.startButton.getWidth(),GameWorld.startButton.getHeight());
-		}
-        shapeRenderer.end();
+        //shapeRenderer.begin(ShapeType.Filled);
+        //if (GameWorld.startScreen) {
+		//	shapeRenderer.setColor(200 / 255.0f, 80 / 255.0f, 200 / 255.0f, 1);
+		//	shapeRenderer.rect(GameWorld.startButton.getX(), GameWorld.startButton.getY(), GameWorld.startButton.getWidth(),GameWorld.startButton.getHeight());
+		//}
+        //shapeRenderer.end();
         
         //draw text
         
