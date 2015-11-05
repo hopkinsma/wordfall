@@ -49,7 +49,7 @@ public class AssetLoader {
 			    }
 			    else {
 			        wordDict.addWord(inLine);
-			    	System.out.println(inLine);
+			    	//System.out.println(inLine);
 			    }
 			}      
 		}catch(Exception e){

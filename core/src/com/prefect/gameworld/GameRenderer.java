@@ -96,8 +96,14 @@ public class GameRenderer {
         //draw the text
         font = new BitmapFont(true);
         font.setColor(Color.RED);
-        font.draw(batcher, GameWorld.thePlayer.getName(), 20, 460);
-        font.draw(batcher, "Life: " + GameWorld.thePlayer.getLife(), 580, 460);
+        if (GameWorld.startScreen) {
+        	
+        } else if (GameWorld.levScreen) {
+        	font.draw(batcher, "Click to start level", 300, 220);
+        } else if (GameWorld.playScreen) {
+        	font.draw(batcher, GameWorld.thePlayer.getName(), 20, 460);
+        	font.draw(batcher, "Life: " + GameWorld.thePlayer.getLife(), 580, 460);
+        }
         // End SpriteBatch
         batcher.end();	
         
