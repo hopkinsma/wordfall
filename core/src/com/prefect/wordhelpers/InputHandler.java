@@ -65,53 +65,70 @@ public class InputHandler implements InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {	
-		//do one thing if the touch is on the start screen
-		if (GameWorld.startScreen) {
-			if (GameWorld.startButton.containsPoint(screenX, screenY)) {
-				GameWorld.thePlayer = new Player("Player 1");
-				GameWorld.startScreen = false;
-				GameWorld.levScreen = true;
-				System.out.println("startButton clicked!");
-			}
-		}
-		else if (GameWorld.levScreen) {
-			GameWorld.levScreen = false;
-			GameWorld.playScreen = true;
-			String letString = AssetLoader.wordDict.getRandWord();
-		    GameWorld.gameLetters = new FallingLetter[letString.length()];
-			System.out.println("Starting level. Word is: " + letString);
-			for (int i = 0; i < letString.length(); i++) {
-		        int xLoc = (5 + (6 - letString.length()) + i) * 30 + 10;
-		        GameWorld.gameLetters[i] = new FallingLetter(letString.charAt(i), xLoc, 1);
-		    }
-		}
-		//and do another on the play screen
-		else if (GameWorld.playScreen) {
-			for (int i = 0; i < GameWorld.gameLetters.length; i++) {
-				if (GameWorld.gameLetters[i].checkClick(screenX, screenY)) {
-			    	if (GameWorld.gameLetters[i].fallStatus()) {
-						if (!GameWorld.gameLetters[i].checkSelected()) {
-				    		GameWorld.gameLetters[i].select();
-			            	GameWorld.word = GameWorld.word.concat(Character.toString(GameWorld.gameLetters[i].value()));
-						}
-						else {
-				    		//the letter is already selected. deselect letter maybe?
-						}
-			    	}
-				}
-		    }
-		}
-		//aaaaan on the end screen
-		else if (GameWorld.endScreen) {
-			GameWorld.endScreen = false;
-			GameWorld.startScreen = true;
-		}
 		return true;
 	}
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 		// TODO Auto-generated method stub
+		//do one thing if the touch is on the start screen
+				if (GameWorld.startScreen) {
+					if (GameWorld.startButton.containsPoint(screenX, screenY)) {
+						GameWorld.thePlayer = new Player("Player 1");
+						GameWorld.startScreen = false;
+						GameWorld.levScreen = true;
+						System.out.println("startButton clicked!");
+					}
+				}
+				else if (GameWorld.levScreen) {
+					GameWorld.levScreen = false;
+					GameWorld.playScreen = true;
+					String letString = AssetLoader.wordDict.getRandWord();
+				    GameWorld.gameLetters = new FallingLetter[letString.length()];
+					System.out.println("Starting level. Word is: " + letString);
+					for (int i = 0; i < letString.length(); i++) {
+				        int xLoc = (5 + (6 - letString.length()) + i) * 30 + 10;
+				        GameWorld.gameLetters[i] = new FallingLetter(letString.charAt(i), xLoc, 1);
+				    }
+				}
+				//and do another on the play screen
+				else if (GameWorld.playScreen) {
+					boolean clickCheck = false;
+					for (int i = 0; i < GameWorld.gameLetters.length; i++) {
+						if (GameWorld.gameLetters[i].checkClick(screenX, screenY)) {
+					    	if (GameWorld.gameLetters[i].fallStatus()) {
+								if (!GameWorld.gameLetters[i].checkSelected()) {
+						    		GameWorld.gameLetters[i].select();
+					            	GameWorld.word = GameWorld.word.concat(Character.toString(GameWorld.gameLetters[i].value()));
+					            	clickCheck = true;
+								}
+								else {
+						    		//the letter is already selected. deselect letter maybe?
+								}
+					    	}
+						}
+				    }
+					if (!clickCheck) {
+						if (AssetLoader.wordDict.listContains(GameWorld.word)) {
+						    GameWorld.thePlayer.scored(25 * GameWorld.word.length());
+						    if (GameWorld.word.length() == GameWorld.gameLetters.length) {
+						        GameWorld.thePlayer.giveLife(5);
+						    }
+						    for (int i = 0; i < GameWorld.gameLetters.length; i++) {
+						        if (GameWorld.gameLetters[i].checkSelected()) {
+							    GameWorld.gameLetters[i].kill();
+						        }
+						    }
+						}
+						GameWorld.word = "";
+					}
+				}
+				//aaaaan on the end screen
+				else if (GameWorld.endScreen) {
+					GameWorld.endScreen = false;
+					GameWorld.startScreen = true;
+				}
+
 		return false;
 	}
 
