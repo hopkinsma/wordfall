@@ -2,7 +2,8 @@ package com.prefect.gameworld;
 
 public class FallingLetter {
 	boolean isSelected, isFalling;
-	int xPos, yPos, mySpeed;
+	float mySpeed;
+	int xPos, yPos;
 	int ceiling = 40;
 	int floor = 270;
 	int sideLength = 30;
@@ -16,7 +17,7 @@ public class FallingLetter {
 	mySpeed = speed;
 	}
 
-	public FallingLetter(char letter, int x, int y, int speed) {
+	public FallingLetter(char letter, int x, int y, float speed) {
 	myLetter = letter;
 	xPos = x;
 	yPos = y;
@@ -35,8 +36,9 @@ public class FallingLetter {
 		return myLetter;
 	}
 
-	public void update() {
+	public void update(float delta) {
 		if (!hitFloor()) {
+			mySpeed = delta;
 			yPos += mySpeed;
 		}
 	}

@@ -30,7 +30,7 @@ public class GameWorld {
 				//System.out.println("Letter is " + gameLetters[x].value());
 		    	if (gameLetters[x].fallStatus()) {
 			    	count += 1;
-			    	gameLetters[x].update();
+			    	gameLetters[x].update(delta);
 			    	if (gameLetters[x].hitFloor()) {
 			    		thePlayer.damaged(10);
 			    		if (thePlayer.getLife() <= 0) { //player is dead, check top scores and change screen

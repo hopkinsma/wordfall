@@ -6,10 +6,10 @@ public class Player {
 	boolean checkedScore;
 
 	public Player(String s) {
-		life = 100;
+		life = 1000;
 		words = 0;
 		score = 0;
-		level = 1;
+		level = 2;
 		name = s;
 		checkedScore = false;
 	}
