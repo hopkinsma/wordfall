@@ -14,8 +14,19 @@ public class InputHandler implements InputProcessor {
 
 	@Override
 	public boolean keyDown(int keycode) {
-		System.out.println("Keypress:" + keycode);
+		//System.out.println("Keypress:" + keycode);
 		//GameWorld.startScreen = false;
+		switch (keycode) {
+		case Keys.A:
+			System.out.println("A pressed");
+			break;
+		case Keys.B:
+			System.out.println("B pressed");
+			break;
+		case Keys.C:
+			System.out.println("C pressed");
+			break;
+		}
 		return false;
 	}
 
@@ -27,6 +38,18 @@ public class InputHandler implements InputProcessor {
 
 	@Override
 	public boolean keyTyped(char character) {
+		switch (character) {
+		case 'a':
+			System.out.println("A pressed");
+			break;
+		case 'b':
+			System.out.println("B pressed");
+			break;
+		case 'c':
+			System.out.println("C pressed");
+			break;
+		}
+		
 		return false;
 	}
 
@@ -59,7 +82,7 @@ public class InputHandler implements InputProcessor {
 			    	if (GameWorld.gameLetters[i].fallStatus()) {
 						if (!GameWorld.gameLetters[i].checkSelected()) {
 				    		GameWorld.gameLetters[i].select();
-			            	GameWorld.word = GameWorld.word.concat(GameWorld.gameLetters[i].toString());
+			            	GameWorld.word = GameWorld.word.concat(Character.toString(GameWorld.gameLetters[i].value()));
 						}
 						else {
 				    		//the letter is already selected. deselect letter maybe?
