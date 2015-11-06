@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="lib" path="lib/box2dlights-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-ai-1.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-backend-android-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-box2d-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-controllers-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-controllers-android-1.7.1.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/WordFall-core"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

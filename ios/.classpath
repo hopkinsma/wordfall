@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/gdx-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-backend-robovm-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-box2d-platform-1.7.1-natives-ios.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-platform-1.7.1-natives-ios.jar"/>
+	<classpathentry kind="lib" path="lib/robovm-cocoatouch-1.9.0.jar"/>
+	<classpathentry kind="lib" path="lib/robovm-objc-1.9.0.jar"/>
+	<classpathentry kind="lib" path="lib/robovm-rt-1.9.0.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/WordFall-core"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
