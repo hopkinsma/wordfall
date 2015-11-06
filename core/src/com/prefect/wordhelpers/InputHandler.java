@@ -119,7 +119,7 @@ public class InputHandler implements InputProcessor {
 							    GameWorld.gameLetters[i].kill();
 						        }
 						    }
-						    GameWorld.word = "";
+						GameWorld.word = "";
 						}
 					}
 				}
