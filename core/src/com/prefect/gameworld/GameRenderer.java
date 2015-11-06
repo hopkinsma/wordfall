@@ -96,10 +96,11 @@ public class GameRenderer {
         //draw the text
         font = new BitmapFont(true);
         font.setColor(Color.WHITE);
+        
         if (GameWorld.startScreen) {
         	font.draw(batcher, "Cool start screen here", Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
         } else if (GameWorld.levScreen) {
-        	font.draw(batcher, "Click to start level", Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
+        	font.draw(batcher, "Click to start level " + GameWorld.thePlayer.getLevel(), Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
         } else if (GameWorld.playScreen) {
         	font.draw(batcher, GameWorld.thePlayer.getName(), Gdx.graphics.getWidth() * 0.03f, Gdx.graphics.getHeight() * 0.96f);
         	font.draw(batcher, "Life: " + GameWorld.thePlayer.getLife(), Gdx.graphics.getWidth() * 0.85f, Gdx.graphics.getHeight() * 0.96f);
