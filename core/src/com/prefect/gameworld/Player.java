@@ -45,7 +45,8 @@ public class Player {
 	public int getLevel() {
 		return level;
 	}
-
+	
+	
 	public void giveLife(int amt) {
 		if (life <= 145) {
 		    life += amt;
