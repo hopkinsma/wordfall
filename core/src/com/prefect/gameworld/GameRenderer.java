@@ -95,7 +95,7 @@ public class GameRenderer {
         
         //draw the text
         font = new BitmapFont(true);
-        font.setColor(Color.RED);
+        font.setColor(Color.WHITE);
         if (GameWorld.startScreen) {
         	font.draw(batcher, "Cool start screen here", Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
         } else if (GameWorld.levScreen) {

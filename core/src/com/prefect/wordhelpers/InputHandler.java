@@ -120,7 +120,7 @@ public class InputHandler implements InputProcessor {
 						        }
 						    }
 						}
-						GameWorld.word = "";
+						//GameWorld.word = "";
 					}
 				}
 				//aaaaan on the end screen

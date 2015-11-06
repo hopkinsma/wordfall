@@ -5,7 +5,7 @@
         jar="A:\Development\wordfall\core\build\libs\core-1.0.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="755d55413527eb8a155a759d1013816b60ef8ca3">
+        sha1="9444766720dd7de226e30bd56036f34cdd8de704">
         <dex dex="A:\Development\wordfall\android\build\intermediates\pre-dexed\debug\core-1.0-140b0b7a9a5985c5abf288e2173177eb2056177f.jar" />
     </item>
 
