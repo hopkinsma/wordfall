@@ -64,8 +64,10 @@ public class GameWorld {
 			        System.out.println("New word: " + letString);
 			        //give them random x locations
 			        for (int i = 0; i < letString.length(); i++) {
-			            int xLoc = (5 + (6 - letString.length()) + i) * 30 + 10;
-			            gameLetters[i] = new FallingLetter(letString.charAt(i), xLoc, 1);
+			            //int xLoc = (5 + (6 - letString.length()) + i) * 30 + 10;
+			        	//int xLoc = ((Gdx.graphics.getWidth() / 6) * i) - (((6-letString.length() * 75) /2));  
+			            int xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * 75)/2) + (i*75);
+			        	gameLetters[i] = new FallingLetter(letString.charAt(i), xLoc, 1);
 			        }
 				}
 		    }

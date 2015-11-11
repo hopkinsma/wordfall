@@ -22,7 +22,8 @@ public class GameRenderer {
 	private SpriteBatch batcher;
 	private BitmapFont font;
 	
-	private Sprite bg;
+	private Sprite bg, startBut;
+	private Sprite letters[];
 	
 	private static int gameHeight;
 	private static int gameWidth;
@@ -36,7 +37,15 @@ public class GameRenderer {
 		this.gameWidth = gameWidth;
 		
 		batcher = new SpriteBatch();
-		bg = new Sprite(AssetLoader.bg);	
+		bg = new Sprite(AssetLoader.bg);
+		
+		letters = new Sprite[25];
+		for (int i = 0; i < 25; i++) {
+			letters[i] = new Sprite(AssetLoader.wordBubbles[i]);
+		}
+		
+		startBut = new Sprite(AssetLoader.startButton);
+		
 		
 		cam = new OrthographicCamera();
 		cam.setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -87,18 +96,21 @@ public class GameRenderer {
         //if (GameWorld.startScreen) {
         	//batcher.draw(bg, 0, 0, 640, 480);
         	//all of the following ratios are determined by these screen settings
-        	batcher.draw(bg, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batcher.draw(bg, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        	
         //}
         
         	
         batcher.enableBlending();
+        
         
         //draw the text
         font = new BitmapFont(true);
         font.setColor(Color.WHITE);
         
         if (GameWorld.startScreen) {
-        	font.draw(batcher, "Cool start screen here", Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
+        	//font.draw(batcher, "Cool start screen here", Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
+        	batcher.draw(startBut, (Gdx.graphics.getWidth()/2) - (215/2), (Gdx.graphics.getHeight()/2) - (69/2));
         } else if (GameWorld.levScreen) {
         	font.draw(batcher, "Click to start level " + GameWorld.thePlayer.getLevel(), Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
         } else if (GameWorld.playScreen) {
@@ -109,7 +121,8 @@ public class GameRenderer {
         	for (int x = 0; x < GameWorld.gameLetters.length; x++) {
         		String letter = Character.toString(GameWorld.gameLetters[x].value());
         		if (GameWorld.gameLetters[x].fallStatus()) {
-        			font.draw(batcher, letter, GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
+        			//font.draw(batcher, letter, GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
+        			batcher.draw(letters[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
         		}
         	}
         } else if (GameWorld.endScreen) {
