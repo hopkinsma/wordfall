@@ -6,25 +6,42 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.prefect.gameworld.WordList;
 
 
 public class AssetLoader {
 	
-	public static Texture texture, tileTexture;
+	public static Texture backTexture, letterTexture, buttonTexture;
 	
 	public static TextureRegion bg;
+	public static TextureRegion wordBubbles[];
+	public static TextureRegion startButton;
 	public static WordList wordDict;
 	
 	public static void load(){
 		
-		texture = new Texture(Gdx.files.internal("data/wordfall2.jpg"));
+		backTexture = new Texture(Gdx.files.internal("data/backdrop.jpg"));
 		//texture.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		
-		//tileTexture = new Texture(Gdx.files.internal("data/tiles.jpg"));		
+		letterTexture = new Texture(Gdx.files.internal("data/bubs.png"));
+		letterTexture.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		
-		bg = new TextureRegion(texture, 0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+		buttonTexture = new Texture(Gdx.files.internal("data/startButton.png"));
+		
+		
+		bg = new TextureRegion(backTexture, 0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
 		bg.flip(false, true);
+		
+		startButton = new TextureRegion(buttonTexture, 0,0,215,69);
+		startButton.flip(false,  true);
+		
+		wordBubbles = new TextureRegion[25];
+		
+		for (int i = 0; i < 25; i++) {
+			wordBubbles[i] = new TextureRegion(letterTexture, i * 75, 0, 75, 75);
+			wordBubbles[i].flip(false,  true);
+		}
 		
 		
 		//read in the dictionary
@@ -55,7 +72,9 @@ public class AssetLoader {
 	}
 	
 	public static void dispose() {
-		texture.dispose();
+		backTexture.dispose();
+		letterTexture.dispose();
+		buttonTexture.dispose();
 	}
 
 }

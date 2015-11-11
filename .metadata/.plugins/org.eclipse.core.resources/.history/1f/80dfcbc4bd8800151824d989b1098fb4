@@ -1,0 +1,149 @@
+package com.prefect.gameworld;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.utils.viewport.FillViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
+import com.prefect.gameworld.GameWorld;
+import com.prefect.wordhelpers.AssetLoader;
+
+public class GameRenderer {
+	
+	public static GameWorld myWorld;
+	public static OrthographicCamera cam;
+	private ShapeRenderer shapeRenderer;
+	private SpriteBatch batcher;
+	private BitmapFont font;
+	
+	private Sprite bg;
+	private Sprite letters[];
+	
+	private static int gameHeight;
+	private static int gameWidth;
+	
+	public static Viewport viewport;
+	
+	public GameRenderer(GameWorld world, int gameHeight, int gameWidth, int midPointY) {
+		
+		myWorld = world;
+		this.gameHeight = gameHeight;
+		this.gameWidth = gameWidth;
+		
+		batcher = new SpriteBatch();
+		bg = new Sprite(AssetLoader.bg);
+		
+		letters = new Sprite[25];
+		for (int i = 0; i < 25; i++) {
+			letters[i] = new Sprite(AssetLoader.wordBubbles[i]);
+		}
+		
+		
+		cam = new OrthographicCamera();
+		cam.setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+		viewport = new FillViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), cam);
+		viewport.apply();
+		cam.position.set(cam.viewportWidth/2, cam.viewportHeight/2, 0);
+		
+		//attach batcher to camera
+		batcher.setProjectionMatrix(cam.combined);
+		
+		shapeRenderer = new ShapeRenderer();
+		shapeRenderer.setProjectionMatrix(cam.combined);
+		
+	}
+	
+	public void render(float runTime) {
+		
+		
+		cam.update();
+		//System.out.println("runTime: " + runTime);
+		// we will move the outside of the loop for performance later.
+		//Character character = myWorld.getCharacter();
+		
+		// fill the entire screen with black, to prevent potential flickering
+		Gdx.gl.glClearColor(0, 0, 0, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		
+		// being shapeRenderer
+		shapeRenderer.begin(ShapeType.Filled);
+		
+		// draw background color
+		shapeRenderer.setColor(80 / 255.0f, 80 / 255.0f, 100 / 255.0f, 1);
+		shapeRenderer.rect(0, 0, gameWidth,gameHeight);
+		
+
+        // End ShapeRenderer
+        shapeRenderer.end();
+		
+        // Begin SpriteBatch
+        batcher.setProjectionMatrix(cam.combined);
+        batcher.begin();
+        // Disable transparency
+        // This is good for performance when drawing images that do not require
+        // transparency.
+        batcher.disableBlending();
+        
+        //if (GameWorld.startScreen) {
+        	//batcher.draw(bg, 0, 0, 640, 480);
+        	//all of the following ratios are determined by these screen settings
+        	batcher.draw(bg, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        	batcher.draw(letters[2], 0, 0, 75, 75);
+        //}
+        
+        	
+        batcher.enableBlending();
+        
+        //draw the text
+        font = new BitmapFont(true);
+        font.setColor(Color.WHITE);
+        
+        if (GameWorld.startScreen) {
+        	font.draw(batcher, "Cool start screen here", Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
+        } else if (GameWorld.levScreen) {
+        	font.draw(batcher, "Click to start level " + GameWorld.thePlayer.getLevel(), Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
+        } else if (GameWorld.playScreen) {
+        	font.draw(batcher, GameWorld.thePlayer.getName(), Gdx.graphics.getWidth() * 0.03f, Gdx.graphics.getHeight() * 0.96f);
+        	font.draw(batcher, "Life: " + GameWorld.thePlayer.getLife(), Gdx.graphics.getWidth() * 0.85f, Gdx.graphics.getHeight() * 0.96f);
+        	font.draw(batcher, "Word: " + GameWorld.word, Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.96f);
+        	font.draw(batcher, "Score: " + GameWorld.thePlayer.getScore(), Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.04f);
+        	for (int x = 0; x < GameWorld.gameLetters.length; x++) {
+        		String letter = Character.toString(GameWorld.gameLetters[x].value());
+        		if (GameWorld.gameLetters[x].fallStatus()) {
+        			font.draw(batcher, letter, GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
+        		}
+        	}
+        } else if (GameWorld.endScreen) {
+        	font.draw(batcher, "You died, Sucka.", Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
+        }
+        // End SpriteBatch
+        batcher.end();	
+        
+        //draw the buttons
+        //shapeRenderer.begin(ShapeType.Filled);
+        //if (GameWorld.startScreen) {
+		//	shapeRenderer.setColor(200 / 255.0f, 80 / 255.0f, 200 / 255.0f, 1);
+		//	shapeRenderer.rect(GameWorld.startButton.getX(), GameWorld.startButton.getY(), GameWorld.startButton.getWidth(),GameWorld.startButton.getHeight());
+		//}
+        //shapeRenderer.end();
+        
+        //draw text
+        
+	}
+
+	public static int getGameHeight() {
+		return gameHeight;
+	}
+
+	public static int getGameWidth() {
+		return gameWidth;
+	}
+	
+}

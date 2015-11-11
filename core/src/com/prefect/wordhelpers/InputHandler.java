@@ -1,5 +1,6 @@
 package com.prefect.wordhelpers;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.prefect.gameworld.GameWorld;
 import com.prefect.gameworld.Player;
@@ -14,47 +15,50 @@ public class InputHandler implements InputProcessor {
 
 	@Override
 	public boolean keyDown(int keycode) {
-		//System.out.println("Keypress:" + keycode);
-		//GameWorld.startScreen = false;
-		System.out.println(Keys.toString(keycode));
-		switch (keycode) {
-		case Keys.ENTER:
-			if (AssetLoader.wordDict.listContains(GameWorld.word)) {
-			    GameWorld.thePlayer.scored(25 * GameWorld.word.length());
-			    if (GameWorld.word.length() == GameWorld.gameLetters.length) {
-			        GameWorld.thePlayer.giveLife(5);
-			    }
-			    for (int i = 0; i < GameWorld.gameLetters.length; i++) {
-			        if (GameWorld.gameLetters[i].checkSelected()) {
-				    GameWorld.gameLetters[i].kill();
-			        }
-			    }
-			}
-			GameWorld.word = "";
-			break;
-		case Keys.BACKSPACE:
-			for (int i = 0; i < GameWorld.gameLetters.length; i++) {
-	            GameWorld.gameLetters[i].deselect();
-			}
-			GameWorld.word = "";
-			break;
-		default:
-			System.out.println("C pressed");
-			for (int i = 0; i < GameWorld.gameLetters.length; i++) {
-			    if ((Character.toString(GameWorld.gameLetters[i].value()).equalsIgnoreCase(Keys.toString(keycode))) && (GameWorld.gameLetters[i].fallStatus()) && (!GameWorld.gameLetters[i].checkSelected())) {
-			    	GameWorld.gameLetters[i].select();
-			    	Character add = GameWorld.gameLetters[i].value();
-			    	GameWorld.word = GameWorld.word.concat(add.toString());
-			    }
-			}
-			break;
-		}
 		return false;
 	}
 
 	@Override
 	public boolean keyUp(int keycode) {
-		// TODO Auto-generated method stub
+		//System.out.println("Keypress:" + keycode);
+				//GameWorld.startScreen = false;
+				System.out.println(Keys.toString(keycode));
+				switch (keycode) {
+				case Keys.ENTER:
+					if (AssetLoader.wordDict.listContains(GameWorld.word)) {
+					    GameWorld.thePlayer.scored(25 * GameWorld.word.length());
+					    if (GameWorld.word.length() == GameWorld.gameLetters.length) {
+					        GameWorld.thePlayer.giveLife(5);
+					    }
+					    for (int i = 0; i < GameWorld.gameLetters.length; i++) {
+					        if (GameWorld.gameLetters[i].checkSelected()) {
+						    GameWorld.gameLetters[i].kill();
+					        }
+					    }
+					} else {
+						for (int i = 0; i < GameWorld.gameLetters.length; i++) {
+						    GameWorld.gameLetters[i].deselect();
+					    }
+					}
+					GameWorld.word = "";
+					break;
+				case Keys.BACKSPACE:
+					for (int i = 0; i < GameWorld.gameLetters.length; i++) {
+			            GameWorld.gameLetters[i].deselect();
+					}
+					GameWorld.word = "";
+					break;
+				default:
+					for (int i = 0; i < GameWorld.gameLetters.length; i++) {
+					    if ((Character.toString(GameWorld.gameLetters[i].value()).equalsIgnoreCase(Keys.toString(keycode))) && (GameWorld.gameLetters[i].fallStatus()) && (!GameWorld.gameLetters[i].checkSelected())) {
+					    	GameWorld.gameLetters[i].select();
+					    	Character add = GameWorld.gameLetters[i].value();
+					    	GameWorld.word = GameWorld.word.concat(add.toString());
+					    	break;
+					    }
+					}
+					break;
+				}
 		return false;
 	}
 
@@ -87,8 +91,9 @@ public class InputHandler implements InputProcessor {
 				    GameWorld.gameLetters = new FallingLetter[letString.length()];
 					System.out.println("Starting level. Word is: " + letString);
 					for (int i = 0; i < letString.length(); i++) {
-				        int xLoc = (5 + (6 - letString.length()) + i) * 30 + 10;
-				        GameWorld.gameLetters[i] = new FallingLetter(letString.charAt(i), xLoc, 1);
+				        //int xLoc = (5 + (6 - letString.length()) + i) * 30 + 10;
+						int xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * 75)/2) + (i*75);
+						GameWorld.gameLetters[i] = new FallingLetter(letString.charAt(i), xLoc, 1);
 				    }
 				}
 				//and do another on the play screen
