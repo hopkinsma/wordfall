@@ -12,12 +12,11 @@ import com.prefect.gameworld.WordList;
 
 public class AssetLoader {
 	
-	public static Texture backTexture, letterTexture, buttonTexture, levTexture;
+	public static Texture backTexture, letterTexture, buttonTexture;
 	
 	public static TextureRegion bg;
 	public static TextureRegion wordBubbles[];
 	public static TextureRegion startButton;
-	public static TextureRegion levButton;
 	public static WordList wordDict;
 	
 	public static void load(){
@@ -28,21 +27,14 @@ public class AssetLoader {
 		letterTexture = new Texture(Gdx.files.internal("data/bubs.png"));
 		letterTexture.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		
-		levTexture = new Texture(Gdx.files.internal("data/startLevel.png"));
-		levTexture.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
-		
 		buttonTexture = new Texture(Gdx.files.internal("data/startButton.png"));
-		buttonTexture.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
-		 		
+		
 		
 		bg = new TextureRegion(backTexture, 0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
 		bg.flip(false, true);
 		
 		startButton = new TextureRegion(buttonTexture, 0,0,215,69);
 		startButton.flip(false,  true);
-		
-		levButton = new TextureRegion(levTexture, 0,0,215,69);
-		levButton.flip(false, true);
 		
 		wordBubbles = new TextureRegion[25];
 		
@@ -83,7 +75,6 @@ public class AssetLoader {
 		backTexture.dispose();
 		letterTexture.dispose();
 		buttonTexture.dispose();
-		levTexture.dispose();
 	}
 
 }
