@@ -22,7 +22,7 @@ public class GameRenderer {
 	private SpriteBatch batcher;
 	private BitmapFont font;
 	
-	private Sprite bg, startBut, levBut;
+	private Sprite bg, startBut;
 	private Sprite letters[];
 	
 	private static int gameHeight;
@@ -45,7 +45,6 @@ public class GameRenderer {
 		}
 		
 		startBut = new Sprite(AssetLoader.startButton);
-		levBut = new Sprite(AssetLoader.levButton);
 		
 		
 		cam = new OrthographicCamera();
@@ -113,8 +112,7 @@ public class GameRenderer {
         	//font.draw(batcher, "Cool start screen here", Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
         	batcher.draw(startBut, (Gdx.graphics.getWidth()/2) - (215/2), (Gdx.graphics.getHeight()/2) - (69/2));
         } else if (GameWorld.levScreen) {
-        	//font.draw(batcher, "Click to start level " + GameWorld.thePlayer.getLevel(), Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
-        	batcher.draw(levBut, (Gdx.graphics.getWidth()/2) - (215/2), (Gdx.graphics.getHeight()/2) - (69/2));
+        	font.draw(batcher, "Click to start level " + GameWorld.thePlayer.getLevel(), Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
         } else if (GameWorld.playScreen) {
         	font.draw(batcher, GameWorld.thePlayer.getName(), Gdx.graphics.getWidth() * 0.03f, Gdx.graphics.getHeight() * 0.96f);
         	font.draw(batcher, "Life: " + GameWorld.thePlayer.getLife(), Gdx.graphics.getWidth() * 0.85f, Gdx.graphics.getHeight() * 0.96f);

@@ -9,6 +9,6 @@
 	<classpathentry kind="lib" path="lib/robovm-cocoatouch-1.9.0.jar"/>
 	<classpathentry kind="lib" path="lib/robovm-objc-1.9.0.jar"/>
 	<classpathentry kind="lib" path="lib/robovm-rt-1.9.0.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/WordFall-core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/core"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -28,10 +28,10 @@ public class AssetLoader {
 		letterTexture = new Texture(Gdx.files.internal("data/bubs.png"));
 		letterTexture.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		
-		levTexture = new Texture(Gdx.files.internal("data/startLevel.png"));
+		levTexture = new Texture(Gdx.files.internal("data/bubs.png"));
 		levTexture.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		
-		buttonTexture = new Texture(Gdx.files.internal("data/startButton.png"));
+		buttonTexture = new Texture(Gdx.files.internal("data/startLevel.png"));
 		buttonTexture.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		 		
 		
@@ -83,7 +83,6 @@ public class AssetLoader {
 		backTexture.dispose();
 		letterTexture.dispose();
 		buttonTexture.dispose();
-		levTexture.dispose();
 	}
 
 }

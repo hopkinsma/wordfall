@@ -83,7 +83,6 @@ public class AssetLoader {
 		backTexture.dispose();
 		letterTexture.dispose();
 		buttonTexture.dispose();
-		levTexture.dispose();
 	}
 
 }
