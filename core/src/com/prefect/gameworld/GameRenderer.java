@@ -124,6 +124,8 @@ public class GameRenderer {
         		String letter = Character.toString(GameWorld.gameLetters[x].value());
         		if (GameWorld.gameLetters[x].fallStatus()) {
         			//font.draw(batcher, letter, GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
+        			System.out.println("x: " +  GameWorld.gameLetters[x].getX());
+        			System.out.println("y: " +  GameWorld.gameLetters[x].getY());
         			batcher.draw(letters[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
         		}
         	}

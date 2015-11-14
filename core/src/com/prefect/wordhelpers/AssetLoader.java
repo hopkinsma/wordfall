@@ -19,6 +19,7 @@ public class AssetLoader {
 	public static TextureRegion startButton;
 	public static TextureRegion levButton;
 	public static WordList wordDict;
+	private static Helpers helpMe = new Helpers();
 	
 	public static void load(){
 		
@@ -46,8 +47,14 @@ public class AssetLoader {
 		
 		wordBubbles = new TextureRegion[25];
 		
+		float seventyFivePixelsX = helpMe.xPixelAdjuster(75);
+		float seventyFivePixelsY = helpMe.yPixelAdjuster(75);
+		
+		System.out.println("seventyFivePixelsX : " + seventyFivePixelsX);
+		System.out.println("seventyFivePixelsY : " + seventyFivePixelsY);
+		
 		for (int i = 0; i < 25; i++) {
-			wordBubbles[i] = new TextureRegion(letterTexture, i * 75, 0, 75, 75);
+			wordBubbles[i] = new TextureRegion(letterTexture, i * seventyFivePixelsX, 0, seventyFivePixelsX, seventyFivePixelsY);
 			wordBubbles[i].flip(false,  true);
 		}
 		

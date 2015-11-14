@@ -2,6 +2,7 @@ package com.prefect.gameworld;
 
 import com.badlogic.gdx.Gdx;
 import com.prefect.wordhelpers.AssetLoader;
+import com.prefect.wordhelpers.Helpers;
 
 public class GameWorld {
 	
@@ -10,6 +11,7 @@ public class GameWorld {
 	public static GameButton startButton;
 	public static boolean startScreen, levScreen, playScreen, endScreen;
 	public static String word;
+	private Helpers helpMe;
 	
 	public GameWorld(int midPointY){
 		thePlayer = new Player("Player 1");
@@ -19,6 +21,7 @@ public class GameWorld {
 		endScreen = false;
 		levScreen = false;
 		word = "";
+		helpMe = new Helpers();
 	}
 
 	public void update(float delta) {
@@ -66,7 +69,8 @@ public class GameWorld {
 			        for (int i = 0; i < letString.length(); i++) {
 			            //int xLoc = (5 + (6 - letString.length()) + i) * 30 + 10;
 			        	//int xLoc = ((Gdx.graphics.getWidth() / 6) * i) - (((6-letString.length() * 75) /2));  
-			            int xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * 75)/2) + (i*75);
+			            //int xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * 75)/2) + (i*75);
+			        	float xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * helpMe.xPixelAdjuster(75))/2) + (i*helpMe.xPixelAdjuster(75));
 			        	gameLetters[i] = new FallingLetter(letString.charAt(i), xLoc, 1);
 			        }
 				}
