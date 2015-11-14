@@ -1,0 +1,24 @@
+package com.prefect.gameworld;
+
+
+public class GameWorld {
+	
+	public FallingLetter gameLetters[];
+	public static Player thePlayer;
+	public static GameButton startButton;
+	public static boolean startScreen, playScreen, endScreen;
+	
+	public GameWorld(int midPointY){
+		gameLetters = new FallingLetter[6];
+		thePlayer = new Player("Player 1");
+		startButton = new GameButton(270, 190, 100, 100);
+		startScreen = true;
+		playScreen = false;
+		endScreen = false;
+	}
+
+	public void update(float delta) {
+		
+	}
+	
+}

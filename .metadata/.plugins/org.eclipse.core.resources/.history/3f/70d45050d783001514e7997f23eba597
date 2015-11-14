@@ -1,0 +1,51 @@
+package com.prefect.gameworld;
+
+
+public class GameWorld {
+	
+	public static FallingLetter gameLetters[];
+	public static Player thePlayer;
+	public static GameButton startButton;
+	public static boolean startScreen, levScreen, playScreen, endScreen;
+	
+	public GameWorld(int midPointY){
+		thePlayer = new Player("Player 1");
+		startButton = new GameButton(270, 190, 100, 100);
+		startScreen = true;
+		playScreen = false;
+		endScreen = false;
+		levScreen = false;
+	}
+
+	public void update(float delta) {
+		if (startScreen || endScreen) {
+			
+		} else if (playScreen) {
+			/*Loop through all the falling letters and move them down, if they hit floor make
+		     * player take damage. If players life is gone, game is over. check higscores. */
+		    int count = 0;
+		    for (int x = 0; x <= gameLetters.length; x++) {
+				System.out.println("Count is " + x + " of " + gameLetters.length);
+				System.out.println("Letter is " + gameLetters[x].value());
+		    	if (gameLetters[x].fallStatus()) {
+			    	count += 1;
+			    	gameLetters[x].update();
+			    	if (gameLetters[x].hitFloor()) {
+			    		thePlayer.damaged(10);
+			    		if (thePlayer.getLife() <= 0) { //player is dead, check top scores and change screen
+			    			playScreen = false;
+			    		}
+			    		if (gameLetters[x].checkSelected()) {
+			    			for (int i = 0; i < gameLetters.length; i++) {
+			    				gameLetters[i].deselect();
+			    			}
+			    			//word = "";
+			    		}
+			    		gameLetters[x].kill();
+			    	}
+				}
+		    }
+		}
+	}
+	
+}
