@@ -101,10 +101,13 @@ public class InputHandler implements InputProcessor {
 					boolean clickCheck = false;
 					for (int i = 0; i < GameWorld.gameLetters.length; i++) {
 						if (GameWorld.gameLetters[i].checkClick(screenX, screenY)) {
+							System.out.println("fallStatus: " + GameWorld.gameLetters[i].fallStatus());
 					    	if (GameWorld.gameLetters[i].fallStatus()) {
+					    		System.out.println("check select: " + !GameWorld.gameLetters[i].checkSelected());
 								if (!GameWorld.gameLetters[i].checkSelected()) {
 						    		GameWorld.gameLetters[i].select();
 					            	GameWorld.word = GameWorld.word.concat(Character.toString(GameWorld.gameLetters[i].value()));
+					            	//GameWorld.gameLetters[i].kill();
 					            	clickCheck = true;
 								}
 								else {

@@ -66,7 +66,8 @@ public class GameWorld {
 			        for (int i = 0; i < letString.length(); i++) {
 			            //int xLoc = (5 + (6 - letString.length()) + i) * 30 + 10;
 			        	//int xLoc = ((Gdx.graphics.getWidth() / 6) * i) - (((6-letString.length() * 75) /2));  
-			            int xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * 75)/2) + (i*75);
+			            //int xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * 75)/2) + (i*75);
+			            float xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * (Gdx.graphics.getWidth() + 0.16f))/2) + (i*(Gdx.graphics.getWidth() + 0.16f));
 			        	gameLetters[i] = new FallingLetter(letString.charAt(i), xLoc, 1);
 			        }
 				}
