@@ -33,7 +33,7 @@ public class GameScreen implements Screen{
 	@Override
 	public void render(float delta) {
 		runTime += delta;
-		world.update(delta + GameWorld.thePlayer.getLevel());
+		world.update(delta + (GameWorld.thePlayer.getLevel()));
 		renderer.render(runTime);
 	}
 	

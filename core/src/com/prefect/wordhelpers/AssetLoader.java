@@ -44,9 +44,9 @@ public class AssetLoader {
 		levButton = new TextureRegion(levTexture, 0,0,215,69);
 		levButton.flip(false, true);
 		
-		wordBubbles = new TextureRegion[25];
+		wordBubbles = new TextureRegion[26];
 		
-		for (int i = 0; i < 25; i++) {
+		for (int i = 0; i < 26; i++) {
 			wordBubbles[i] = new TextureRegion(letterTexture, i * 75, 0, 75, 75);
 			wordBubbles[i].flip(false,  true);
 		}

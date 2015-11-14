@@ -39,8 +39,8 @@ public class GameRenderer {
 		batcher = new SpriteBatch();
 		bg = new Sprite(AssetLoader.bg);
 		
-		letters = new Sprite[25];
-		for (int i = 0; i < 25; i++) {
+		letters = new Sprite[26];
+		for (int i = 0; i < 26; i++) {
 			letters[i] = new Sprite(AssetLoader.wordBubbles[i]);
 		}
 		
@@ -97,8 +97,7 @@ public class GameRenderer {
         //if (GameWorld.startScreen) {
         	//batcher.draw(bg, 0, 0, 640, 480);
         	//all of the following ratios are determined by these screen settings
-        batcher.draw(bg, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        	
+        batcher.draw(bg, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());	
         //}
         
         	
@@ -107,7 +106,7 @@ public class GameRenderer {
         
         //draw the text
         font = new BitmapFont(true);
-        font.setColor(Color.WHITE);
+        font.setColor(Color.BLACK);
         
         if (GameWorld.startScreen) {
         	//font.draw(batcher, "Cool start screen here", Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
