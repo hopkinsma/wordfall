@@ -28,6 +28,6 @@
 	<classpathentry kind="lib" path="lib/lwjgl-platform-2.9.2-natives-linux.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-platform-2.9.2-natives-osx.jar"/>
 	<classpathentry kind="lib" path="lib/lwjgl-platform-2.9.2-natives-windows.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/WordFall-core"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
