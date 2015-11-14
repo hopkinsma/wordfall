@@ -13,7 +13,7 @@ public class Helpers {
 	public Helpers(){
 		
 	}
-	
+	//dsafsdf
 	public float xPixelAdjuster(int xPixel) {
 		return screenWidth * (xPixel/baseWidth);
 	}
