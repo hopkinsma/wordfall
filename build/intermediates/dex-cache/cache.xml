@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="A:\Development\DownWhere\wordfall\core\build\libs\core-1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8159b987e4e7d0e2aeae2ae48d2d19f2cc10c427">
+        <dex dex="A:\Development\DownWhere\wordfall\android\build\intermediates\pre-dexed\debug\core-1.0-d51ec94e24530be250446cd0ec1dccd727a5f5f7.jar" />
+    </item>
+
+</items>

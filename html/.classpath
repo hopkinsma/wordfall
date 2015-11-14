@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/box2dlights-1.4-sources.jar"/>
+	<classpathentry kind="lib" path="lib/box2dlights-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-1.7.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-ai-1.6.0-sources.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-ai-1.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-backend-gwt-1.7.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-backend-gwt-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-box2d-1.7.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-box2d-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-box2d-gwt-1.7.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-controllers-1.7.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-controllers-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-controllers-gwt-1.7.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-controllers-gwt-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/gwt-codeserver-2.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/gwt-servlet-2.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/gwt-user-2.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/libgdx-utils-0.13.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/libgdx-utils-0.13.1.jar"/>
+	<classpathentry kind="lib" path="lib/libgdx-utils-box2d-0.13.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/libgdx-utils-box2d-0.13.1.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/WordFall-core"/>
+	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+</classpath>

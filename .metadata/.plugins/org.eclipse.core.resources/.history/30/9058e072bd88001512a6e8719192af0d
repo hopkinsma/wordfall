@@ -1,0 +1,71 @@
+package com.prefect.wordhelpers;
+
+import java.io.BufferedReader;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.Texture.TextureFilter;
+import com.prefect.gameworld.WordList;
+
+
+public class AssetLoader {
+	
+	public static Texture texture, letterTexture;
+	
+	public static TextureRegion bg;
+	public static TextureRegion wordBubbles[];
+	public static WordList wordDict;
+	
+	public static void load(){
+		
+		texture = new Texture(Gdx.files.internal("data/wordfall2.jpg"));
+		//texture.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+		
+		letterTexture = new Texture(Gdx.files.internal("data/bubs.png"));
+		letterTexture.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+		
+		bg = new TextureRegion(texture, 0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+		bg.flip(false, true);
+		
+		wordBubbles = new TextureRegion[25];
+		
+		for (int i = 0; i < 25; i++) {
+			wordBubbles[i] = new TextureRegion(letterTexture, i * 75, 0, 75, 75);
+			wordBubbles[i].flip(false,  true);
+		}
+		
+		
+		//read in the dictionary
+		wordDict = new WordList();
+		FileHandle handle = Gdx.files.internal("data/dict.txt");
+		
+		//String  thisLine = null;
+		try{
+			//FileReader fileReader = new FileReader(Gdx.files.internal("data/dict.txt"));
+			//InputStreamReader isr = new InputStreamReader(fis);
+			BufferedReader br = new BufferedReader(handle.reader());
+			boolean endof = false;
+			String inLine = null;
+			while (!endof) {
+			    inLine = br.readLine();
+			    if (inLine == null) {
+			        endof = true;
+			    }
+			    else {
+			        wordDict.addWord(inLine);
+			    	//System.out.println(inLine);
+			    }
+			}      
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static void dispose() {
+		texture.dispose();
+	}
+
+}
