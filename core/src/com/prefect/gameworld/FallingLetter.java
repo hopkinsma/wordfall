@@ -8,10 +8,11 @@ public class FallingLetter {
 	float xPos, yPos;
 	float ceiling = Gdx.graphics.getWidth() * .06f;
 	float floor = Gdx.graphics.getHeight();
-	float sideLength = Gdx.graphics.getWidth() * 0.5f;
+	float xLength = (Gdx.graphics.getWidth() * 0.16f)/2;
+	float yLength = (Gdx.graphics.getHeight() * 0.16f)/2;
 	char myLetter;
 	
-	public FallingLetter(char letter, int x, int speed) {
+	public FallingLetter(char letter, float x, int speed) {
 		isFalling = true;
 		myLetter = letter;
 		xPos = x;
@@ -19,7 +20,7 @@ public class FallingLetter {
 		mySpeed = speed;
 	}
 
-	public FallingLetter(char letter, int x, int y, float speed) {
+	public FallingLetter(char letter, float x, float y, float speed) {
 		myLetter = letter;
 		xPos = x;
 		yPos = y;
@@ -74,8 +75,13 @@ public class FallingLetter {
 	}
 	
 	public boolean checkClick(int x, int y) {
-		if ((x > xPos) && (x < (xPos + sideLength))) {
-			if ((y > yPos) && (y < (yPos + sideLength))) {					    
+		
+		System.out.println(myLetter + ": xLength: " + xLength + ", yLength: " + yLength);
+		System.out.println((xPos - xLength) + " < " + x + " < " + (xPos + xLength));
+		System.out.println((yPos - yLength) + " < " + y + " < " + (yPos + yLength));
+		
+		if ((xPos - xLength) < x && x < (xPos + xLength)) {
+			if ((yPos - yLength) < y && y < (yPos + yLength)) {					    
 				return true;
 			}
 			else {
