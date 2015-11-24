@@ -11,6 +11,8 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.utils.Scaling;
 import com.prefect.gameworld.GameWorld;
 import com.prefect.wordhelpers.AssetLoader;
 import com.prefect.wordhelpers.Helpers;
@@ -24,7 +26,8 @@ public class GameRenderer {
 	private SpriteBatch batcher;
 	private BitmapFont font;
 	
-	private Sprite bg, startBut, levBut, entBut, clearBut, endBut, satellite;
+	private Sprite startBut, levBut, entBut, clearBut, endBut, satellite;
+	private Sprite bg;
 	private Sprite letters[];
 	private Sprite lettersSelected[];
 	private Sprite smLetters[];
@@ -43,16 +46,21 @@ public class GameRenderer {
 		this.gameWidth = gameWidth;
 		
 		batcher = new SpriteBatch();
+		
 		bg = new Sprite(AssetLoader.bg);
-		//bg.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());		
+		
+		
+		
 		
 		letters = new Sprite[26];
 		for (int i = 0; i < 26; i++) {
 			letters[i] = new Sprite(AssetLoader.wordBubbles[i][0]);
-			double seventyFivePixelsX = helpMe.xPixelAdjuster(75);
-			float seventyFivePixelsY = helpMe.yPixelAdjuster(75);
+			double seventyFivePixelsX = helpMe.xPixelAdjuster(30);
+			float seventyFivePixelsY = helpMe.yPixelAdjuster(30);
 			System.out.println("x size: " + seventyFivePixelsX + "/y size: " + seventyFivePixelsY);
-			letters[i].setSize((float)seventyFivePixelsX,  seventyFivePixelsY);			
+			letters[i].setSize((float)seventyFivePixelsX,  seventyFivePixelsY);
+			letters[i].setScale((float)Gdx.graphics.getWidth(), (float)Gdx.graphics.getHeight());
+			System.out.println("Letter height: " + letters[i].getHeight());
 		}
 		
 		lettersSelected = new Sprite[26];
@@ -129,7 +137,11 @@ public class GameRenderer {
         	//batcher.draw(bg, 0, 0, 640, 480);
         	//all of the following ratios are determined by these screen settings
         //batcher.draw(bg, 0, 0);//, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batcher.draw(bg, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        //batcher.draw(bg, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        //bg.setPosition(0, 0);
+        bg.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        bg.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        bg.draw(batcher);
         //}
         
         	
