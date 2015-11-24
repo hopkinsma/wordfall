@@ -8,14 +8,21 @@ public class GameWorld {
 	
 	public static FallingLetter gameLetters[];
 	public static Player thePlayer;
-	public static GameButton startButton;
+	public static GameButton startButton, enterButton, clearButton, endButton;
 	public static boolean startScreen, levScreen, playScreen, endScreen;
 	public static String word;
+	public static BackgroundObject satellite;
 	private Helpers helpMe;
 	
 	public GameWorld(int midPointY){
 		thePlayer = new Player("Player 1");
-		startButton = new GameButton(Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46F, 100, 100);
+		//startButton = new GameButton(helpMe.xPixelAdjuster(Gdx.graphics.getWidth()/2), Gdx.graphics.getHeight() * 0.46F, 50, 150);
+		startButton = new GameButton(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight() * 0.46F, 80, 250);
+		enterButton = new GameButton(Gdx.graphics.getWidth()-110, Gdx.graphics.getHeight() - 110, 80, 80);
+		clearButton = new GameButton(10, Gdx.graphics.getHeight() - 110, 80, 80);
+		endButton = new GameButton(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight() * 0.46F, 80, 250);
+		//satellite = new BackgroundObject((int)helpMe.xPixelAdjuster(125), (int)helpMe.yPixelAdjuster(100));
+		satellite = new BackgroundObject(125, 100);
 		startScreen = true;
 		playScreen = false;
 		endScreen = false;
@@ -25,6 +32,7 @@ public class GameWorld {
 	}
 
 	public void update(float delta) {
+		satellite.update(delta);
 		if (startScreen || endScreen) {
 			
 		} else if (playScreen) {
@@ -71,7 +79,7 @@ public class GameWorld {
 			        	//int xLoc = ((Gdx.graphics.getWidth() / 6) * i) - (((6-letString.length() * 75) /2));  
 			            //float xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * 75)/2) + (i*75);
 			        	float xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * helpMe.xPixelAdjuster(75))/2) + (i*helpMe.xPixelAdjuster(75));
-			        	System.out.println("xLoc is " + xLoc + ". xPixelAdjusted is" + helpMe.xPixelAdjuster(75));
+			        	//System.out.println("xLoc is " + xLoc + ". xPixelAdjusted is" + helpMe.xPixelAdjuster(75));
 			        	gameLetters[i] = new FallingLetter(letString.charAt(i), xLoc, 1);
 			        }
 				}

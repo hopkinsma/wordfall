@@ -18,6 +18,7 @@ public class FallingLetter {
 		xPos = x;
 		yPos = ceiling;
 		mySpeed = speed;
+		isSelected = false;
 	}
 
 	public FallingLetter(char letter, float x, float y, float speed) {
@@ -121,7 +122,7 @@ public class FallingLetter {
 			case 'x': return 23;
 			case 'y': return 24;
 			case 'z': return 25;
-			default: return -1;
+			default: return 0;
 		}
 	}		
 		

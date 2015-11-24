@@ -15,8 +15,8 @@ public class Helpers {
 	}
 	//dsafsdf
 	public float xPixelAdjuster(float xPixel) {
-		System.out.println("Screen width: " + Gdx.graphics.getWidth() + " xPixel: " + xPixel + " baseWidth: " + baseWidth);
-		System.out.println("xPixel/baseWidth = " + (xPixel/baseWidth));
+		//System.out.println("Screen width: " + Gdx.graphics.getWidth() + " xPixel: " + xPixel + " baseWidth: " + baseWidth);
+		//System.out.println("xPixel/baseWidth = " + (xPixel/baseWidth));
 		float fixedSize = screenWidth * (xPixel/baseWidth);
 		return fixedSize;
 	}

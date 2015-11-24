@@ -101,22 +101,8 @@ public class InputHandler implements InputProcessor {
 				}
 				//and do another on the play screen
 				else if (GameWorld.playScreen) {
-					boolean clickCheck = false;
-					for (int i = 0; i < GameWorld.gameLetters.length; i++) {
-						if (GameWorld.gameLetters[i].checkClick(screenX, screenY)) {
-					    	if (GameWorld.gameLetters[i].fallStatus()) {
-								if (!GameWorld.gameLetters[i].checkSelected()) {
-						    		GameWorld.gameLetters[i].select();
-					            	GameWorld.word = GameWorld.word.concat(Character.toString(GameWorld.gameLetters[i].value()));
-					            	clickCheck = true;
-								}
-								else {
-						    		//the letter is already selected. deselect letter maybe?
-								}
-					    	}
-						}
-				    }
-					if (!clickCheck) {
+					if (GameWorld.enterButton.containsPoint(screenX, screenY)) {
+						System.out.println("Enter clicked.");
 						if (AssetLoader.wordDict.listContains(GameWorld.word)) {
 						    GameWorld.thePlayer.scored(25 * GameWorld.word.length());
 						    if (GameWorld.word.length() == GameWorld.gameLetters.length) {
@@ -127,7 +113,48 @@ public class InputHandler implements InputProcessor {
 							    GameWorld.gameLetters[i].kill();
 						        }
 						    }
+						} else {
+							for (int i = 0; i < GameWorld.gameLetters.length; i++) {
+							    GameWorld.gameLetters[i].deselect();
+						    }
+						}
 						GameWorld.word = "";
+					} else if (GameWorld.clearButton.containsPoint(screenX, screenY)) {
+						//Clear button clicked
+						System.out.println("Clear clicked");
+						for (int i = 0; i < GameWorld.gameLetters.length; i++) {
+				            GameWorld.gameLetters[i].deselect();
+						}
+						GameWorld.word = "";
+					} else { //no button clicked, check letters
+						boolean clickCheck = false;
+						for (int i = 0; i < GameWorld.gameLetters.length; i++) {
+							if (GameWorld.gameLetters[i].checkClick(screenX, screenY)) {
+								if (GameWorld.gameLetters[i].fallStatus()) {
+									if (!GameWorld.gameLetters[i].checkSelected()) {
+										GameWorld.gameLetters[i].select();
+										GameWorld.word = GameWorld.word.concat(Character.toString(GameWorld.gameLetters[i].value()));
+										clickCheck = true;
+									}
+									else {
+										//the letter is already selected. deselect letter maybe?
+									}
+								}
+							}
+						}
+						if (!clickCheck) {
+							/*if (AssetLoader.wordDict.listContains(GameWorld.word)) {
+								GameWorld.thePlayer.scored(25 * GameWorld.word.length());
+								if (GameWorld.word.length() == GameWorld.gameLetters.length) {
+									GameWorld.thePlayer.giveLife(5);
+								}
+								for (int i = 0; i < GameWorld.gameLetters.length; i++) {
+									if (GameWorld.gameLetters[i].checkSelected()) {
+										GameWorld.gameLetters[i].kill();
+									}
+								}
+								GameWorld.word = "";
+							}*/
 						}
 					}
 				}
