@@ -50,8 +50,7 @@ public class GameRenderer {
 			double seventyFivePixelsX = helpMe.xPixelAdjuster(75);
 			float seventyFivePixelsY = helpMe.yPixelAdjuster(75);
 			System.out.println("x size: " + seventyFivePixelsX + "/y size: " + seventyFivePixelsY);
-			letters[i].setSize((float)seventyFivePixelsX,  seventyFivePixelsY);
-			//letters[i].setSize(200, 200);
+			letters[i].setSize((float)seventyFivePixelsX,  seventyFivePixelsY);			
 		}
 		
 		startBut = new Sprite(AssetLoader.startButton);

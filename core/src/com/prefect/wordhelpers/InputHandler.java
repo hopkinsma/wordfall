@@ -6,9 +6,12 @@ import com.prefect.gameworld.GameWorld;
 import com.prefect.gameworld.Player;
 import com.prefect.gameworld.FallingLetter;
 import com.badlogic.gdx.Input.Keys;
+import com.prefect.wordhelpers.Helpers;
 
 public class InputHandler implements InputProcessor {
 
+	
+	private static Helpers helpMe = new Helpers();
 	
 	public InputHandler() {
 	}
@@ -92,7 +95,7 @@ public class InputHandler implements InputProcessor {
 					System.out.println("Starting level. Word is: " + letString);
 					for (int i = 0; i < letString.length(); i++) {
 				        //int xLoc = (5 + (6 - letString.length()) + i) * 30 + 10;
-						int xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * 75)/2) + (i*75);
+						float xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * helpMe.xPixelAdjuster(75))/2) + (i*helpMe.xPixelAdjuster(75));
 						GameWorld.gameLetters[i] = new FallingLetter(letString.charAt(i), xLoc, 1);
 				    }
 				}
