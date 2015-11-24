@@ -24,8 +24,10 @@ public class GameRenderer {
 	private SpriteBatch batcher;
 	private BitmapFont font;
 	
-	private Sprite bg, startBut, levBut;
+	private Sprite bg, startBut, levBut, entBut, clearBut, endBut, satellite;
 	private Sprite letters[];
+	private Sprite lettersSelected[];
+	private Sprite smLetters[];
 	
 	private static int gameHeight;
 	private static int gameWidth;
@@ -44,18 +46,37 @@ public class GameRenderer {
 		bg = new Sprite(AssetLoader.bg);
 		//bg.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());		
 		
-		letters = new Sprite[25];
-		for (int i = 0; i < 25; i++) {
-			letters[i] = new Sprite(AssetLoader.wordBubbles[i]);
+		letters = new Sprite[26];
+		for (int i = 0; i < 26; i++) {
+			letters[i] = new Sprite(AssetLoader.wordBubbles[i][0]);
 			double seventyFivePixelsX = helpMe.xPixelAdjuster(75);
 			float seventyFivePixelsY = helpMe.yPixelAdjuster(75);
 			System.out.println("x size: " + seventyFivePixelsX + "/y size: " + seventyFivePixelsY);
 			letters[i].setSize((float)seventyFivePixelsX,  seventyFivePixelsY);			
 		}
 		
-		startBut = new Sprite(AssetLoader.startButton);
-		startBut.setSize(800,  800);
+		lettersSelected = new Sprite[26];
+		for (int i = 0; i < 26; i++) {
+			lettersSelected[i] = new Sprite(AssetLoader.wordBubbles[i][1]);
+			double seventyFivePixelsX = helpMe.xPixelAdjuster(75);
+			float seventyFivePixelsY = helpMe.yPixelAdjuster(75);
+			System.out.println("x size: " + seventyFivePixelsX + "/y size: " + seventyFivePixelsY);
+			lettersSelected[i].setSize((float)seventyFivePixelsX,  seventyFivePixelsY);			
+		}
+		
+		smLetters = new Sprite[26];
+		for (int i = 0; i < 26; i++) {
+			smLetters[i] = new Sprite(AssetLoader.smLetters[i]);
+			smLetters[i].setSize(helpMe.xPixelAdjuster(50), helpMe.yPixelAdjuster(50));
+		}
+		
+		
+		startBut = new Sprite(AssetLoader.startButton);		
 		levBut = new Sprite(AssetLoader.levButton);
+		entBut = new Sprite(AssetLoader.enterButton);
+		clearBut = new Sprite(AssetLoader.clearButton);
+		endBut = new Sprite(AssetLoader.gameOverButton);
+		satellite = new Sprite(AssetLoader.satellite);
 		
 		
 		cam = new OrthographicCamera();
@@ -108,7 +129,7 @@ public class GameRenderer {
         	//batcher.draw(bg, 0, 0, 640, 480);
         	//all of the following ratios are determined by these screen settings
         //batcher.draw(bg, 0, 0);//, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        bg.draw(batcher);	
+        batcher.draw(bg, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         //}
         
         	
@@ -119,15 +140,18 @@ public class GameRenderer {
         font = new BitmapFont(true);
         font.setColor(Color.WHITE);
         
+        batcher.draw(satellite, GameWorld.satellite.getX(), GameWorld.satellite.getY());
+        
         if (GameWorld.startScreen) {
         	//font.draw(batcher, "Cool start screen here", Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
-        	batcher.draw(startBut, (Gdx.graphics.getWidth()/2) - (215/2), (Gdx.graphics.getHeight()/2) - (69/2));
+        	batcher.draw(startBut, (Gdx.graphics.getWidth()/2) - (250/2), (Gdx.graphics.getHeight()/2) - (80/80));        	
+        	//batcher.draw(startBut,  GameWorld.startButton.getX(), GameWorld.startButton.getY(), helpMe.xPixelAdjuster(GameWorld.startButton.getWidth()), helpMe.yPixelAdjuster(GameWorld.startButton.getHeight()));
         } else if (GameWorld.levScreen) {
         	//font.draw(batcher, "Click to start level " + GameWorld.thePlayer.getLevel(), Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
-        	batcher.draw(levBut, (Gdx.graphics.getWidth()/2) - (215/2), (Gdx.graphics.getHeight()/2) - (69/2));
+        	batcher.draw(levBut, (Gdx.graphics.getWidth()/2) - (250/2), (Gdx.graphics.getHeight()/2) - (80/80));
         } else if (GameWorld.playScreen) {
-        	font.draw(batcher, GameWorld.thePlayer.getName(), Gdx.graphics.getWidth() * 0.03f, Gdx.graphics.getHeight() * 0.96f);
-        	font.draw(batcher, "Life: " + GameWorld.thePlayer.getLife(), Gdx.graphics.getWidth() * 0.85f, Gdx.graphics.getHeight() * 0.96f);
+        	font.draw(batcher, GameWorld.thePlayer.getName(), Gdx.graphics.getWidth() * 0.03f, Gdx.graphics.getHeight() * 0.04f);
+        	font.draw(batcher, "Life: " + GameWorld.thePlayer.getLife(), Gdx.graphics.getWidth() * 0.85f, Gdx.graphics.getHeight() * 0.04f);
         	font.draw(batcher, "Word: " + GameWorld.word, Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.96f);
         	font.draw(batcher, "Score: " + GameWorld.thePlayer.getScore(), Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.04f);
         	for (int x = 0; x < GameWorld.gameLetters.length; x++) {
@@ -136,11 +160,18 @@ public class GameRenderer {
         			//font.draw(batcher, letter, GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
         			//System.out.println("x: " +  GameWorld.gameLetters[x].getX());
         			//System.out.println("y: " +  GameWorld.gameLetters[x].getY());
-        			batcher.draw(letters[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());        			
+        			if (!GameWorld.gameLetters[x].checkSelected()) {
+        				batcher.draw(letters[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
+        			} else {
+        				batcher.draw(lettersSelected[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
+        			}
         		}
         	}
+        	batcher.draw(clearBut, GameWorld.clearButton.getX(), GameWorld.clearButton.getY(), helpMe.xPixelAdjuster(GameWorld.clearButton.getWidth()), helpMe.yPixelAdjuster(GameWorld.clearButton.getHeight()));
+        	batcher.draw(entBut, GameWorld.enterButton.getX(), GameWorld.enterButton.getY(), helpMe.xPixelAdjuster(GameWorld.enterButton.getWidth()), helpMe.yPixelAdjuster(GameWorld.enterButton.getHeight()));
+        	
         } else if (GameWorld.endScreen) {
-        	font.draw(batcher, "You died, Sucka.", Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
+        	batcher.draw(endBut, (Gdx.graphics.getWidth()/2) - (250/2), (Gdx.graphics.getHeight()/2) - (80/80));
         }
         // End SpriteBatch
         batcher.end();	
