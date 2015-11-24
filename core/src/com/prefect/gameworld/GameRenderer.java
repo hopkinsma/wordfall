@@ -13,6 +13,8 @@ import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.prefect.gameworld.GameWorld;
 import com.prefect.wordhelpers.AssetLoader;
+import com.prefect.wordhelpers.Helpers;
+import java.math.BigDecimal;
 
 public class GameRenderer {
 	
@@ -28,6 +30,8 @@ public class GameRenderer {
 	private static int gameHeight;
 	private static int gameWidth;
 	
+	private static Helpers helpMe = new Helpers();
+	
 	public static Viewport viewport;
 	
 	public GameRenderer(GameWorld world, int gameHeight, int gameWidth, int midPointY) {
@@ -38,13 +42,20 @@ public class GameRenderer {
 		
 		batcher = new SpriteBatch();
 		bg = new Sprite(AssetLoader.bg);
+		//bg.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());		
 		
 		letters = new Sprite[25];
 		for (int i = 0; i < 25; i++) {
 			letters[i] = new Sprite(AssetLoader.wordBubbles[i]);
+			double seventyFivePixelsX = helpMe.xPixelAdjuster(75);
+			float seventyFivePixelsY = helpMe.yPixelAdjuster(75);
+			System.out.println("x size: " + seventyFivePixelsX + "/y size: " + seventyFivePixelsY);
+			letters[i].setSize((float)seventyFivePixelsX,  seventyFivePixelsY);
+			//letters[i].setSize(200, 200);
 		}
 		
 		startBut = new Sprite(AssetLoader.startButton);
+		startBut.setSize(800,  800);
 		levBut = new Sprite(AssetLoader.levButton);
 		
 		
@@ -97,8 +108,8 @@ public class GameRenderer {
         //if (GameWorld.startScreen) {
         	//batcher.draw(bg, 0, 0, 640, 480);
         	//all of the following ratios are determined by these screen settings
-        batcher.draw(bg, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        	
+        //batcher.draw(bg, 0, 0);//, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        bg.draw(batcher);	
         //}
         
         	
@@ -124,9 +135,9 @@ public class GameRenderer {
         		String letter = Character.toString(GameWorld.gameLetters[x].value());
         		if (GameWorld.gameLetters[x].fallStatus()) {
         			//font.draw(batcher, letter, GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
-        			System.out.println("x: " +  GameWorld.gameLetters[x].getX());
-        			System.out.println("y: " +  GameWorld.gameLetters[x].getY());
-        			batcher.draw(letters[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
+        			//System.out.println("x: " +  GameWorld.gameLetters[x].getX());
+        			//System.out.println("y: " +  GameWorld.gameLetters[x].getY());
+        			batcher.draw(letters[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());        			
         		}
         	}
         } else if (GameWorld.endScreen) {
