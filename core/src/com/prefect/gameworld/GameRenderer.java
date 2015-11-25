@@ -31,6 +31,7 @@ public class GameRenderer {
 	private Sprite letters[];
 	private Sprite lettersSelected[];
 	private Sprite smLetters[];
+	private Sprite dispLetters[];
 	
 	private static int gameHeight;
 	private static int gameWidth;
@@ -163,8 +164,7 @@ public class GameRenderer {
         	batcher.draw(levBut, (Gdx.graphics.getWidth()/2) - (250/2), (Gdx.graphics.getHeight()/2) - (80/80));
         } else if (GameWorld.playScreen) {
         	font.draw(batcher, GameWorld.thePlayer.getName(), Gdx.graphics.getWidth() * 0.03f, Gdx.graphics.getHeight() * 0.04f);
-        	font.draw(batcher, "Life: " + GameWorld.thePlayer.getLife(), Gdx.graphics.getWidth() * 0.85f, Gdx.graphics.getHeight() * 0.04f);
-        	font.draw(batcher, "Word: " + GameWorld.word, Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.96f);
+        	font.draw(batcher, "Life: " + GameWorld.thePlayer.getLife(), Gdx.graphics.getWidth() * 0.85f, Gdx.graphics.getHeight() * 0.04f);        	
         	font.draw(batcher, "Score: " + GameWorld.thePlayer.getScore(), Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.04f);
         	for (int x = 0; x < GameWorld.gameLetters.length; x++) {
         		String letter = Character.toString(GameWorld.gameLetters[x].value());
@@ -178,6 +178,14 @@ public class GameRenderer {
         				batcher.draw(lettersSelected[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
         			}
         		}
+        	}
+        	dispLetters = new Sprite[GameWorld.word.length()];
+        	for (int x = 0; x < GameWorld.word.length(); x++) {
+        		dispLetters[x] = smLetters[helpMe.getCharInt(GameWorld.word.charAt(x))];
+        		float yPos = Gdx.graphics.getHeight() - (helpMe.xPixelAdjuster(50 + 10));
+        		float xPos = (Gdx.graphics.getWidth() / 2) - ((GameWorld.word.length() * helpMe.xPixelAdjuster(50))/2) + (x*helpMe.xPixelAdjuster(50));
+        		batcher.draw(dispLetters[x], xPos, yPos);
+        		
         	}
         	batcher.draw(clearBut, GameWorld.clearButton.getX(), GameWorld.clearButton.getY(), helpMe.xPixelAdjuster(GameWorld.clearButton.getWidth()), helpMe.yPixelAdjuster(GameWorld.clearButton.getHeight()));
         	batcher.draw(entBut, GameWorld.enterButton.getX(), GameWorld.enterButton.getY(), helpMe.xPixelAdjuster(GameWorld.enterButton.getWidth()), helpMe.yPixelAdjuster(GameWorld.enterButton.getHeight()));
