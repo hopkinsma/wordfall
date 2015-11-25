@@ -96,7 +96,7 @@ public class InputHandler implements InputProcessor {
 					for (int i = 0; i < letString.length(); i++) {
 				        //int xLoc = (5 + (6 - letString.length()) + i) * 30 + 10;
 						float xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * helpMe.xPixelAdjuster(75))/2) + (i*helpMe.xPixelAdjuster(75));
-						GameWorld.gameLetters[i] = new FallingLetter(letString.charAt(i), xLoc, 1);
+						GameWorld.gameLetters[i] = new FallingLetter(letString.charAt(i), xLoc, 1, helpMe.xPixelAdjuster(75));
 				    }
 				}
 				//and do another on the play screen

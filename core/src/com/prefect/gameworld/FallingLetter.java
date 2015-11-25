@@ -8,17 +8,20 @@ public class FallingLetter {
 	float xPos, yPos;
 	float ceiling = Gdx.graphics.getWidth() * .06f;
 	float floor = Gdx.graphics.getHeight();
-	float xLength = (Gdx.graphics.getWidth() * 0.16f)/2;
+	//float xLength = (Gdx.graphics.getWidth() * 0.16f)/2;
+	//float xLength = Gdx.graphics.getHeight() * 0.16f;
+	float xLength;
 	float yLength = (Gdx.graphics.getHeight() * 0.16f)/2;
 	char myLetter;
 	
-	public FallingLetter(char letter, float x, int speed) {
+	public FallingLetter(char letter, float x, int speed, float xLength) {
 		isFalling = true;
 		myLetter = letter;
 		xPos = x;
 		yPos = ceiling;
 		mySpeed = speed;
 		isSelected = false;
+		this.xLength = xLength;
 	}
 
 	public FallingLetter(char letter, float x, float y, float speed) {
@@ -81,7 +84,8 @@ public class FallingLetter {
 		System.out.println((xPos - xLength) + " < " + x + " < " + (xPos + xLength));
 		System.out.println((yPos - yLength) + " < " + y + " < " + (yPos + yLength));
 		
-		if ((xPos - xLength) < x && x < (xPos + xLength)) {
+		//if ((xPos - xLength) < x && x < (xPos + xLength)) {
+		if ((xPos) < x && x < (xPos + xLength)) {
 			if ((yPos - yLength) < y && y < (yPos + yLength)) {					    
 				return true;
 			}
