@@ -80,7 +80,7 @@ public class GameWorld {
 			            //float xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * 75)/2) + (i*75);
 			        	float xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * helpMe.xPixelAdjuster(75))/2) + (i*helpMe.xPixelAdjuster(75));
 			        	//System.out.println("xLoc is " + xLoc + ". xPixelAdjusted is" + helpMe.xPixelAdjuster(75));
-			        	gameLetters[i] = new FallingLetter(letString.charAt(i), xLoc, 1);
+			        	gameLetters[i] = new FallingLetter(letString.charAt(i), xLoc, 1, helpMe.xPixelAdjuster(75));
 			        }
 				}
 		    }
