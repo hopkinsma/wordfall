@@ -14,19 +14,20 @@ public class GameButton {
 	}
 
 	public boolean containsPoint(int x, int y) {
-	    if ((x > xPos) && (x < (xPos + width))) {
-		if ((y > yPos) && (y < (yPos + height))) {
-	  	    highlighted = true;
-		    return true;
-		}
-		else {
-		    highlighted = false;
-		    return false;
-		}
-	    }
-	    else {
-		highlighted = false;
-		return false;
+		System.out.println("x: " + x + ", xPos: " + xPos + ", (xPos+width): " + (xPos + width) + ", width: " + width);
+	    if ((xPos < x) && (x < (xPos + width))) {
+			System.out.println("y: " + y + ", yPos: " + yPos + ", (yPos+height): " + (yPos + height) + ", height: " + height);
+			if ((yPos < y) && (y < (yPos + height))) {
+				highlighted = true;
+				return true;
+			}
+			else {
+				highlighted = false;
+				return false;
+			}
+	    } else {
+			highlighted = false;
+			return false;
 	    }
 	}
 	

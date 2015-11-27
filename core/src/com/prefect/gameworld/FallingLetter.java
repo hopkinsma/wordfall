@@ -80,9 +80,9 @@ public class FallingLetter {
 	
 	public boolean checkClick(int x, int y) {
 		
-		System.out.println(myLetter + ": xLength: " + xLength + ", yLength: " + yLength);
-		System.out.println((xPos - xLength) + " < " + x + " < " + (xPos + xLength));
-		System.out.println((yPos - yLength) + " < " + y + " < " + (yPos + yLength));
+		//System.out.println(myLetter + ": xLength: " + xLength + ", yLength: " + yLength);
+		//System.out.println((xPos - xLength) + " < " + x + " < " + (xPos + xLength));
+		//System.out.println((yPos - yLength) + " < " + y + " < " + (yPos + yLength));
 		
 		//if ((xPos - xLength) < x && x < (xPos + xLength)) {
 		if ((xPos) < x && x < (xPos + xLength)) {

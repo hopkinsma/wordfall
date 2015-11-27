@@ -25,7 +25,7 @@ public class InputHandler implements InputProcessor {
 	public boolean keyUp(int keycode) {
 		//System.out.println("Keypress:" + keycode);
 				//GameWorld.startScreen = false;
-				System.out.println(Keys.toString(keycode));
+				//System.out.println(Keys.toString(keycode));
 				switch (keycode) {
 				case Keys.ENTER:
 					if (AssetLoader.wordDict.listContains(GameWorld.word)) {
