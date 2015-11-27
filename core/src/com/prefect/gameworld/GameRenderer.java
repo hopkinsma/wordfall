@@ -156,28 +156,29 @@ public class GameRenderer {
         batcher.draw(satellite, GameWorld.satellite.getX(), GameWorld.satellite.getY());
         
         if (GameWorld.startScreen) {
-        	//font.draw(batcher, "Cool start screen here", Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
-            //System.out.println("Draw Location: " + (Gdx.graphics.getWidth()/2) + ", " + (Gdx.graphics.getHeight()/2) + ", " + 500 + ", " + 160);
-        	batcher.draw(startBut, 290, 880, 500, 160);
-        	//batcher.draw(startBut,  GameWorld.startButton.getX(), GameWorld.startButton.getY(), helpMe.xPixelAdjuster(GameWorld.startButton.getWidth()), helpMe.yPixelAdjuster(GameWorld.startButton.getHeight()));
+        	
+        	batcher.draw(startBut, helpMe.xPixelAdjuster(290), helpMe.yPixelAdjuster(880), helpMe.xPixelAdjuster(500), helpMe.yPixelAdjuster(160));
+        	
         } else if (GameWorld.levScreen) {
-        	//font.draw(batcher, "Click to start level " + GameWorld.thePlayer.getLevel(), Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
-        	batcher.draw(levBut, 290, 880, 500, 160);
+        	
+        	batcher.draw(levBut, helpMe.xPixelAdjuster(290), helpMe.yPixelAdjuster(880), helpMe.xPixelAdjuster(500), helpMe.yPixelAdjuster(160));
+        	
         } else if (GameWorld.playScreen) {
+        	
         	font.draw(batcher, GameWorld.thePlayer.getName(), Gdx.graphics.getWidth() * 0.03f, Gdx.graphics.getHeight() * 0.04f);
         	font.draw(batcher, "Life: " + GameWorld.thePlayer.getLife(), Gdx.graphics.getWidth() * 0.85f, Gdx.graphics.getHeight() * 0.04f);        	
         	font.draw(batcher, "Score: " + GameWorld.thePlayer.getScore(), Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.04f);
+        	
         	for (int x = 0; x < GameWorld.gameLetters.length; x++) {
-        		String letter = Character.toString(GameWorld.gameLetters[x].value());
+        		
         		if (GameWorld.gameLetters[x].fallStatus()) {
-        			//font.draw(batcher, letter, GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
-        			//System.out.println("x: " +  GameWorld.gameLetters[x].getX());
-        			//System.out.println("y: " +  GameWorld.gameLetters[x].getY());
+        			
         			if (!GameWorld.gameLetters[x].checkSelected()) {
-        				batcher.draw(letters[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY(), 142, 142);
+        				batcher.draw(letters[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY(), helpMe.xPixelAdjuster(142), helpMe.yPixelAdjuster(142));
         			} else {
-        				batcher.draw(lettersSelected[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY(), 142, 142);
+        				batcher.draw(lettersSelected[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY(), helpMe.xPixelAdjuster(142), helpMe.yPixelAdjuster(142));
         			}
+        			
         		}
         	}
         	dispLetters = new Sprite[GameWorld.word.length()];

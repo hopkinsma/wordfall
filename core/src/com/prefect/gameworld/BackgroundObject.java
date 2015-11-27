@@ -12,7 +12,7 @@ public class BackgroundObject {
 	int outTimer = 0;
 	boolean onScreen;
 	
-	public BackgroundObject(int xLength, int yLength) {
+	public BackgroundObject(float xLength, float yLength) {
 		this.xLength = xLength;
 		this.yLength = yLength;
 		xPos = 0 - xLength;
