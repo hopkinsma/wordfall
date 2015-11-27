@@ -4,8 +4,8 @@ import com.badlogic.gdx.Gdx;
 
 public class Helpers {
 	
-	final private static float baseWidth = 480;
-	final private static float baseHeight = 640;
+	final private static float baseWidth = 1080;
+	final private static float baseHeight = 1920;
 	
 	private float screenWidth = Gdx.graphics.getWidth();
 	private float screenHeight = Gdx.graphics.getHeight();
@@ -13,7 +13,7 @@ public class Helpers {
 	public Helpers(){
 		
 	}
-	//dsafsdf
+
 	public float xPixelAdjuster(float xPixel) {
 		//System.out.println("Screen width: " + Gdx.graphics.getWidth() + " xPixel: " + xPixel + " baseWidth: " + baseWidth);
 		//System.out.println("xPixel/baseWidth = " + (xPixel/baseWidth));

@@ -46,7 +46,7 @@ public class BackgroundObject {
 			if ((xPos > screenWidth) || (yPos < (0 - yLength))) {
 				onScreen = false;
 				outTimer = (int)(Math.random() * 100) + 100;
-				System.out.println("satellite timeout: " + outTimer);
+				//System.out.println("satellite timeout: " + outTimer);
 			}			
 		} else { //reset
 			outTimer -=1;

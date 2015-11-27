@@ -16,13 +16,19 @@ public class GameWorld {
 	
 	public GameWorld(int midPointY){
 		thePlayer = new Player("Player 1");
+
+        System.out.println("Gdx.graphics.getWidth(): " + Gdx.graphics.getWidth());
+        System.out.println("Gdx.graphics.getHeight(): " + Gdx.graphics.getHeight());
+
 		//startButton = new GameButton(helpMe.xPixelAdjuster(Gdx.graphics.getWidth()/2), Gdx.graphics.getHeight() * 0.46F, 50, 150);
-		startButton = new GameButton(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight() * 0.46F, 80, 250);
-		enterButton = new GameButton(Gdx.graphics.getWidth()-110, Gdx.graphics.getHeight() - 110, 80, 80);
-		clearButton = new GameButton(10, Gdx.graphics.getHeight() - 110, 80, 80);
-		endButton = new GameButton(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight() * 0.46F, 80, 250);
+		//System.out.println("preStartButton: " + (Gdx.graphics.getWidth()/2) + ", " + (Gdx.graphics.getHeight()/2) + ", " + 500 + ", " + 160);
+		startButton = new GameButton(290, 880, 160, 500);
+		System.out.println("startButton: " + startButton.getX() + ", " + startButton.getY() + ", " + startButton.getHeight() + ", " + startButton.getWidth());
+		enterButton = new GameButton(Gdx.graphics.getWidth()-210, Gdx.graphics.getHeight() - 210, 200, 200);
+		clearButton = new GameButton(10, Gdx.graphics.getHeight() - 210, 200, 200);
+		endButton = new GameButton(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight() * 0.46F, 160, 500);
 		//satellite = new BackgroundObject((int)helpMe.xPixelAdjuster(125), (int)helpMe.yPixelAdjuster(100));
-		satellite = new BackgroundObject(125, 100);
+		satellite = new BackgroundObject(168, 150);
 		startScreen = true;
 		playScreen = false;
 		endScreen = false;
@@ -78,7 +84,7 @@ public class GameWorld {
 			            //int xLoc = (5 + (6 - letString.length()) + i) * 30 + 10;
 			        	//int xLoc = ((Gdx.graphics.getWidth() / 6) * i) - (((6-letString.length() * 75) /2));  
 			            //float xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * 75)/2) + (i*75);
-			        	float xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * helpMe.xPixelAdjuster(75))/2) + (i*helpMe.xPixelAdjuster(75));
+			        	float xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * helpMe.xPixelAdjuster(142))/2) + (i*helpMe.xPixelAdjuster(142));
 			        	//System.out.println("xLoc is " + xLoc + ". xPixelAdjusted is" + helpMe.xPixelAdjuster(75));
 			        	gameLetters[i] = new FallingLetter(letString.charAt(i), xLoc, 1, helpMe.xPixelAdjuster(75));
 			        }

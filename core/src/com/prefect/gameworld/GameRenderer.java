@@ -58,10 +58,10 @@ public class GameRenderer {
 			letters[i] = new Sprite(AssetLoader.wordBubbles[i][0]);
 			double seventyFivePixelsX = helpMe.xPixelAdjuster(30);
 			float seventyFivePixelsY = helpMe.yPixelAdjuster(30);
-			System.out.println("x size: " + seventyFivePixelsX + "/y size: " + seventyFivePixelsY);
-			letters[i].setSize((float)seventyFivePixelsX,  seventyFivePixelsY);
-			letters[i].setScale((float)Gdx.graphics.getWidth(), (float)Gdx.graphics.getHeight());
-			System.out.println("Letter height: " + letters[i].getHeight());
+			//System.out.println("x size: " + seventyFivePixelsX + "/y size: " + seventyFivePixelsY);
+			letters[i].setSize((float) seventyFivePixelsX, seventyFivePixelsY);
+			letters[i].setScale((float) Gdx.graphics.getWidth(), (float) Gdx.graphics.getHeight());
+			//System.out.println("Letter height: " + letters[i].getHeight());
 		}
 		
 		lettersSelected = new Sprite[26];
@@ -69,7 +69,7 @@ public class GameRenderer {
 			lettersSelected[i] = new Sprite(AssetLoader.wordBubbles[i][1]);
 			double seventyFivePixelsX = helpMe.xPixelAdjuster(75);
 			float seventyFivePixelsY = helpMe.yPixelAdjuster(75);
-			System.out.println("x size: " + seventyFivePixelsX + "/y size: " + seventyFivePixelsY);
+			//System.out.println("x size: " + seventyFivePixelsX + "/y size: " + seventyFivePixelsY);
 			lettersSelected[i].setSize((float)seventyFivePixelsX,  seventyFivePixelsY);			
 		}
 		
@@ -157,11 +157,12 @@ public class GameRenderer {
         
         if (GameWorld.startScreen) {
         	//font.draw(batcher, "Cool start screen here", Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
-        	batcher.draw(startBut, (Gdx.graphics.getWidth()/2) - (250/2), (Gdx.graphics.getHeight()/2) - (80/80));        	
+            //System.out.println("Draw Location: " + (Gdx.graphics.getWidth()/2) + ", " + (Gdx.graphics.getHeight()/2) + ", " + 500 + ", " + 160);
+        	batcher.draw(startBut, 290, 880, 500, 160);
         	//batcher.draw(startBut,  GameWorld.startButton.getX(), GameWorld.startButton.getY(), helpMe.xPixelAdjuster(GameWorld.startButton.getWidth()), helpMe.yPixelAdjuster(GameWorld.startButton.getHeight()));
         } else if (GameWorld.levScreen) {
         	//font.draw(batcher, "Click to start level " + GameWorld.thePlayer.getLevel(), Gdx.graphics.getWidth() * 0.47f, Gdx.graphics.getHeight() * 0.46f);
-        	batcher.draw(levBut, (Gdx.graphics.getWidth()/2) - (250/2), (Gdx.graphics.getHeight()/2) - (80/80));
+        	batcher.draw(levBut, 290, 880, 500, 160);
         } else if (GameWorld.playScreen) {
         	font.draw(batcher, GameWorld.thePlayer.getName(), Gdx.graphics.getWidth() * 0.03f, Gdx.graphics.getHeight() * 0.04f);
         	font.draw(batcher, "Life: " + GameWorld.thePlayer.getLife(), Gdx.graphics.getWidth() * 0.85f, Gdx.graphics.getHeight() * 0.04f);        	
@@ -173,9 +174,9 @@ public class GameRenderer {
         			//System.out.println("x: " +  GameWorld.gameLetters[x].getX());
         			//System.out.println("y: " +  GameWorld.gameLetters[x].getY());
         			if (!GameWorld.gameLetters[x].checkSelected()) {
-        				batcher.draw(letters[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
+        				batcher.draw(letters[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY(), 142, 142);
         			} else {
-        				batcher.draw(lettersSelected[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY());
+        				batcher.draw(lettersSelected[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY(), 142, 142);
         			}
         		}
         	}
