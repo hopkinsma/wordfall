@@ -16,25 +16,20 @@ public class GameWorld {
 	
 	public GameWorld(int midPointY){
 		thePlayer = new Player("Player 1");
+		helpMe = new Helpers();
 
-        System.out.println("Gdx.graphics.getWidth(): " + Gdx.graphics.getWidth());
-        System.out.println("Gdx.graphics.getHeight(): " + Gdx.graphics.getHeight());
-
-		//startButton = new GameButton(helpMe.xPixelAdjuster(Gdx.graphics.getWidth()/2), Gdx.graphics.getHeight() * 0.46F, 50, 150);
-		//System.out.println("preStartButton: " + (Gdx.graphics.getWidth()/2) + ", " + (Gdx.graphics.getHeight()/2) + ", " + 500 + ", " + 160);
-		startButton = new GameButton(290, 880, 160, 500);
-		System.out.println("startButton: " + startButton.getX() + ", " + startButton.getY() + ", " + startButton.getHeight() + ", " + startButton.getWidth());
-		enterButton = new GameButton(Gdx.graphics.getWidth()-210, Gdx.graphics.getHeight() - 210, 200, 200);
-		clearButton = new GameButton(10, Gdx.graphics.getHeight() - 210, 200, 200);
+		startButton = new GameButton(helpMe.xPixelAdjuster(290), helpMe.yPixelAdjuster(880), helpMe.xPixelAdjuster(160), helpMe.yPixelAdjuster(500));
+		enterButton = new GameButton(Gdx.graphics.getWidth()- helpMe.xPixelAdjuster(210), Gdx.graphics.getHeight() - helpMe.yPixelAdjuster(210), helpMe.xPixelAdjuster(200), helpMe.yPixelAdjuster(200));
+		clearButton = new GameButton(helpMe.xPixelAdjuster(10), Gdx.graphics.getHeight() - helpMe.yPixelAdjuster(210), helpMe.xPixelAdjuster(200), helpMe.yPixelAdjuster(200));
 		endButton = new GameButton(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight() * 0.46F, 160, 500);
 		//satellite = new BackgroundObject((int)helpMe.xPixelAdjuster(125), (int)helpMe.yPixelAdjuster(100));
-		satellite = new BackgroundObject(168, 150);
+		satellite = new BackgroundObject(helpMe.xPixelAdjuster(168), helpMe.yPixelAdjuster(150));
 		startScreen = true;
 		playScreen = false;
 		endScreen = false;
 		levScreen = false;
 		word = "";
-		helpMe = new Helpers();
+		
 	}
 
 	public void update(float delta) {

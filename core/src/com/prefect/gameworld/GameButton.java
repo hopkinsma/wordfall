@@ -4,9 +4,9 @@ public class GameButton {
 	
 	boolean highlighted = false;;
 	float xPos, yPos;
-	int height, width;
+	float height, width;
 	
-	public GameButton(float x, float y, int h, int w) {
+	public GameButton(float x, float y, float h, float w) {
 	    xPos = x;
 	    yPos = y;
 	    height = h;
@@ -39,11 +39,11 @@ public class GameButton {
 		return yPos;
 	}
 
-	public int getHeight() {
+	public float getHeight() {
 		return height;
 	}
 	
-	public int getWidth() {
+	public float getWidth() {
 		return width;
 	}
 	
