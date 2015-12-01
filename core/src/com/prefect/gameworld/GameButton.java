@@ -2,9 +2,9 @@ package com.prefect.gameworld;
 
 public class GameButton {
 	
-	boolean highlighted = false;;
-	float xPos, yPos;
-	float height, width;
+	private boolean highlighted = false;;
+	private float xPos, yPos;
+	private float height, width;
 	
 	public GameButton(float x, float y, float h, float w) {
 	    xPos = x;

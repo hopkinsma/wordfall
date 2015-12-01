@@ -1,9 +1,10 @@
 package com.prefect.gameworld;
 
 public class Player {
-	int life, score, level, words;
-	String name;
-	boolean checkedScore;
+	
+	private int life, score, level, words;
+	private String name;
+	private boolean checkedScore;
 
 	public Player(String s) {
 		life = 1000;

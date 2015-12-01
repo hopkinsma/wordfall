@@ -3,14 +3,15 @@ package com.prefect.gameworld;
 import com.badlogic.gdx.Gdx;
 
 public class BackgroundObject {
-	float mySpeed;
-	float xPos, yPos;
-	float screenWidth = Gdx.graphics.getWidth();
-	float screenHeight = Gdx.graphics.getHeight();
-	float xLength = (Gdx.graphics.getWidth() * 0.16f)/2;
-	float yLength = (Gdx.graphics.getHeight() * 0.16f)/2;
-	int outTimer = 0;
-	boolean onScreen;
+	
+	private float mySpeed;
+	private float xPos, yPos;
+	private float screenWidth = Gdx.graphics.getWidth();
+	private float screenHeight = Gdx.graphics.getHeight();
+	private float xLength = (Gdx.graphics.getWidth() * 0.16f)/2;
+	private float yLength = (Gdx.graphics.getHeight() * 0.16f)/2;
+	private int outTimer = 0;
+	private boolean onScreen;
 	
 	public BackgroundObject(float xLength, float yLength) {
 		this.xLength = xLength;
