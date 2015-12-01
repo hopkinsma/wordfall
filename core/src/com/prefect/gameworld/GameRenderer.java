@@ -11,12 +11,9 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.utils.Scaling;
 import com.prefect.gameworld.GameWorld;
 import com.prefect.wordhelpers.AssetLoader;
 import com.prefect.wordhelpers.Helpers;
-import java.math.BigDecimal;
 
 public class GameRenderer {
 	
@@ -177,36 +174,30 @@ public class GameRenderer {
         				batcher.draw(letters[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY(), helpMe.xPixelAdjuster(142), helpMe.yPixelAdjuster(142));
         			} else {
         				batcher.draw(lettersSelected[GameWorld.gameLetters[x].getIntValue()], GameWorld.gameLetters[x].getX(), GameWorld.gameLetters[x].getY(), helpMe.xPixelAdjuster(142), helpMe.yPixelAdjuster(142));
-        			}
-        			
+        			}	
         		}
         	}
+        	
         	dispLetters = new Sprite[GameWorld.word.length()];
+        	
         	for (int x = 0; x < GameWorld.word.length(); x++) {
+        		
         		dispLetters[x] = smLetters[helpMe.getCharInt(GameWorld.word.charAt(x))];
         		float yPos = Gdx.graphics.getHeight() - (helpMe.xPixelAdjuster(50 + 10));
         		float xPos = (Gdx.graphics.getWidth() / 2) - ((GameWorld.word.length() * helpMe.xPixelAdjuster(50))/2) + (x*helpMe.xPixelAdjuster(50));
-        		batcher.draw(dispLetters[x], xPos, yPos);
-        		
+        		batcher.draw(dispLetters[x], xPos, yPos);		
         	}
+        	
         	batcher.draw(clearBut, GameWorld.clearButton.getX(), GameWorld.clearButton.getY(), helpMe.xPixelAdjuster(GameWorld.clearButton.getWidth()), helpMe.yPixelAdjuster(GameWorld.clearButton.getHeight()));
         	batcher.draw(entBut, GameWorld.enterButton.getX(), GameWorld.enterButton.getY(), helpMe.xPixelAdjuster(GameWorld.enterButton.getWidth()), helpMe.yPixelAdjuster(GameWorld.enterButton.getHeight()));
         	
         } else if (GameWorld.endScreen) {
         	batcher.draw(endBut, (Gdx.graphics.getWidth()/2) - (250/2), (Gdx.graphics.getHeight()/2) - (80/80));
         }
+        
         // End SpriteBatch
         batcher.end();	
         
-        //draw the buttons
-        //shapeRenderer.begin(ShapeType.Filled);
-        //if (GameWorld.startScreen) {
-		//	shapeRenderer.setColor(200 / 255.0f, 80 / 255.0f, 200 / 255.0f, 1);
-		//	shapeRenderer.rect(GameWorld.startButton.getX(), GameWorld.startButton.getY(), GameWorld.startButton.getWidth(),GameWorld.startButton.getHeight());
-		//}
-        //shapeRenderer.end();
-        
-        //draw text
         
 	}
 

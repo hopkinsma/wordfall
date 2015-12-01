@@ -130,6 +130,7 @@ public class AssetLoader {
 		clearEnterTexture.dispose();
 		satTexture.dispose();
 		gameOverTexture.dispose();
+		
 	}
 
 }

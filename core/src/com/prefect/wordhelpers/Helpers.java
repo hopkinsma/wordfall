@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 
 public class Helpers {
 	
+	//based off a 1080p resolution
 	final private static float baseWidth = 1080;
 	final private static float baseHeight = 1920;
 	
@@ -15,8 +16,6 @@ public class Helpers {
 	}
 
 	public float xPixelAdjuster(float xPixel) {
-		//System.out.println("Screen width: " + Gdx.graphics.getWidth() + " xPixel: " + xPixel + " baseWidth: " + baseWidth);
-		//System.out.println("xPixel/baseWidth = " + (xPixel/baseWidth));
 		float fixedSize = screenWidth * (xPixel/baseWidth);
 		return fixedSize;
 	}

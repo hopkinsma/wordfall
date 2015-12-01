@@ -3,7 +3,9 @@ package com.prefect.gameworld;
 import java.util.Vector;
 
 public class WordList {
-	Vector<String> words;
+	
+	private Vector<String> words;
+	
 	public WordList() {
 		words = new Vector<String>(1000, 200);
 	}
