@@ -214,6 +214,7 @@ public class GameRenderer {
 	
 	public void dispose() {
 		System.out.println("Disposing from GameRenderer");
+		shapeRenderer.dispose();
 		batcher.dispose();
 		font.dispose();
 	}
