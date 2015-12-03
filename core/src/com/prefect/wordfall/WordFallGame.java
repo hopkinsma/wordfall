@@ -10,18 +10,21 @@ public class WordFallGame extends Game {
 	/*
 	DezNutz
 	*/
-	
+	GameScreen gameScreen;
 	
 	@Override
 	public void create() {
 		Gdx.app.log("WordFall", "created");
 		AssetLoader.load();
-		setScreen(new GameScreen());
+		gameScreen = new GameScreen();
+		setScreen(gameScreen);
 	}
 
 	@Override
 	public void dispose() {
+		System.out.println("Dispose called.");
 		super.dispose();
+		gameScreen.dispose();
 		AssetLoader.dispose();
 	}
 }
