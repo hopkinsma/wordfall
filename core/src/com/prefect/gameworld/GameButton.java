@@ -2,11 +2,11 @@ package com.prefect.gameworld;
 
 public class GameButton {
 	
-	private boolean highlighted = false;;
-	private float xPos, yPos;
-	private float height, width;
+	boolean highlighted = false;;
+	float xPos, yPos;
+	int height, width;
 	
-	public GameButton(float x, float y, float h, float w) {
+	public GameButton(float x, float y, int h, int w) {
 	    xPos = x;
 	    yPos = y;
 	    height = h;
@@ -14,20 +14,19 @@ public class GameButton {
 	}
 
 	public boolean containsPoint(int x, int y) {
-		System.out.println("x: " + x + ", xPos: " + xPos + ", (xPos+width): " + (xPos + width) + ", width: " + width);
-	    if ((xPos < x) && (x < (xPos + width))) {
-			System.out.println("y: " + y + ", yPos: " + yPos + ", (yPos+height): " + (yPos + height) + ", height: " + height);
-			if ((yPos < y) && (y < (yPos + height))) {
-				highlighted = true;
-				return true;
-			}
-			else {
-				highlighted = false;
-				return false;
-			}
-	    } else {
-			highlighted = false;
-			return false;
+	    if ((x > xPos) && (x < (xPos + width))) {
+	    	if ((y > yPos) && (y < (yPos + height))) {
+	    		highlighted = true;
+	    		return true;
+	    	} 
+	    	else {
+	    		highlighted = false;
+	    		return false;
+	    	}
+	    }
+	    else {
+	    	highlighted = false;
+	    	return false;
 	    }
 	}
 	
@@ -39,11 +38,11 @@ public class GameButton {
 		return yPos;
 	}
 
-	public float getHeight() {
+	public int getHeight() {
 		return height;
 	}
 	
-	public float getWidth() {
+	public int getWidth() {
 		return width;
 	}
 	

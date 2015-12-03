@@ -63,9 +63,10 @@ public class GameScreen implements Screen{
     }
 
     @Override
-    public void dispose() {
-        // Leave blank
+    public void dispose() { 
+        // this might have been the memory leak.
+    	renderer.dispose();
     }
-	
+
 
 }

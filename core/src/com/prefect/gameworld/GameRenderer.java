@@ -46,6 +46,7 @@ public class GameRenderer {
 		batcher = new SpriteBatch();
 		
 		bg = new Sprite(AssetLoader.bg);
+		helpMe = new Helpers();
 		
 		
 		
@@ -149,7 +150,8 @@ public class GameRenderer {
         //draw the text
         font = new BitmapFont(true);
         font.setColor(Color.WHITE);
-        
+        //satellite.setBounds(GameWorld.satellite.getX(), GameWorld.satellite.getY(), GameWorld.satellite.getX() + (int)(Math.random() * 100), GameWorld.satellite.getY() + (int)(Math.random() * 100));
+        //satellite.draw(batcher);
         batcher.draw(satellite, GameWorld.satellite.getX(), GameWorld.satellite.getY());
         
         if (GameWorld.startScreen) {
@@ -183,6 +185,7 @@ public class GameRenderer {
         	for (int x = 0; x < GameWorld.word.length(); x++) {
         		
         		dispLetters[x] = smLetters[helpMe.getCharInt(GameWorld.word.charAt(x))];
+        		dispLetters[x].setSize(helpMe.xPixelAdjuster(50), helpMe.yPixelAdjuster(50));
         		float yPos = Gdx.graphics.getHeight() - (helpMe.xPixelAdjuster(50 + 10));
         		float xPos = (Gdx.graphics.getWidth() / 2) - ((GameWorld.word.length() * helpMe.xPixelAdjuster(50))/2) + (x*helpMe.xPixelAdjuster(50));
         		batcher.draw(dispLetters[x], xPos, yPos);		
@@ -209,4 +212,9 @@ public class GameRenderer {
 		return gameWidth;
 	}
 	
+	public void dispose() {
+		System.out.println("Disposing from GameRenderer");
+		batcher.dispose();
+		font.dispose();
+	}
 }
