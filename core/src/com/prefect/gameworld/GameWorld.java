@@ -19,9 +19,9 @@ public class GameWorld {
 		thePlayer = new Player("Player 1");
 		//startButton = new GameButton(helpMe.xPixelAdjuster(Gdx.graphics.getWidth()/2), Gdx.graphics.getHeight() * 0.46F, 50, 150);
 		startButton = new GameButton((Gdx.graphics.getWidth()/2) - 125, Gdx.graphics.getHeight() * 0.46F, 80, 250);
-		enterButton = new GameButton(Gdx.graphics.getWidth()-85-10, Gdx.graphics.getHeight() - 85 - 10, 85, 85);
+		enterButton = new GameButton(Gdx.graphics.getWidth()- helpMe.xPixelAdjuster(210), Gdx.graphics.getHeight() - helpMe.yPixelAdjuster(210), helpMe.xPixelAdjuster(200), helpMe.yPixelAdjuster(200));
 		System.out.println(helpMe.xPixelAdjuster(85));
-		clearButton = new GameButton(10, Gdx.graphics.getHeight() - 85 - 10, 85, 85);
+		clearButton = new GameButton(helpMe.xPixelAdjuster(10), Gdx.graphics.getHeight() - helpMe.yPixelAdjuster(210), helpMe.xPixelAdjuster(200), helpMe.yPixelAdjuster(200));
 		endButton = new GameButton(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight() * 0.46F, 80, 250);
 		//satellite = new BackgroundObject((int)helpMe.xPixelAdjuster(125), (int)helpMe.yPixelAdjuster(100));
 		satellite = new BackgroundObject(125, 100);
@@ -79,8 +79,11 @@ public class GameWorld {
 			            //int xLoc = (5 + (6 - letString.length()) + i) * 30 + 10;
 			        	//int xLoc = ((Gdx.graphics.getWidth() / 6) * i) - (((6-letString.length() * 75) /2));  
 			            //float xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * 75)/2) + (i*75);
-			        	float xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * helpMe.xPixelAdjuster(75))/2) + (i*helpMe.xPixelAdjuster(75));
+			        	//float xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * helpMe.xPixelAdjuster(75))/2) + (i*helpMe.xPixelAdjuster(75));
 			        	//System.out.println("xLoc is " + xLoc + ". xPixelAdjusted is" + helpMe.xPixelAdjuster(75));
+
+						//commented out previous xLoc
+						float xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * helpMe.xPixelAdjuster(142))/2) + (i*helpMe.xPixelAdjuster(142));
 			        	gameLetters[i] = new FallingLetter(letString.charAt(i), xLoc, 1, helpMe.xPixelAdjuster(75));
 			        }
 				}
