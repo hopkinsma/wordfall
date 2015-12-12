@@ -101,7 +101,7 @@ public class InputHandler implements InputProcessor {
 			System.out.println("Starting level. Word is: " + letString);
 			for (int i = 0; i < letString.length(); i++) {
 		        //int xLoc = (5 + (6 - letString.length()) + i) * 30 + 10;
-				float xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * helpMe.xPixelAdjuster(75))/2) + (i*helpMe.xPixelAdjuster(75));
+				float xLoc = (Gdx.graphics.getWidth() / 2) - ((letString.length() * helpMe.xPixelAdjuster(142))/2) + (i*helpMe.xPixelAdjuster(142));
 				GameWorld.gameLetters[i] = new FallingLetter(letString.charAt(i), xLoc, 1, helpMe.xPixelAdjuster(75));
 		    }
 		}
