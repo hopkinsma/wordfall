@@ -50,8 +50,8 @@ public class GameRenderer {
 		bg = new Sprite(AssetLoader.bg);
 		helpMe = new Helpers();
 		
-		
-		
+		letters = new Sprite[25];
+		for (int i = 0; i < 25; i++) {
 		
 		letters = new Sprite[26];
 		for (int i = 0; i < 26; i++) {
@@ -137,8 +137,8 @@ public class GameRenderer {
         //if (GameWorld.startScreen) {
         	//batcher.draw(bg, 0, 0, 640, 480);
         	//all of the following ratios are determined by these screen settings
-        //batcher.draw(bg, 0, 0);//, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        //batcher.draw(bg, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batcher.draw(bg, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        	
         //bg.setPosition(0, 0);
         bg.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         bg.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -151,7 +151,7 @@ public class GameRenderer {
         
         //draw the text
         font = new BitmapFont(true);
-        font.setColor(Color.WHITE);
+        font.setColor(Color.BLACK);
         //satellite.setBounds(GameWorld.satellite.getX(), GameWorld.satellite.getY(), GameWorld.satellite.getX() + (int)(Math.random() * 100), GameWorld.satellite.getY() + (int)(Math.random() * 100));
         //satellite.draw(batcher);
         batcher.draw(satellite, GameWorld.satellite.getX(), GameWorld.satellite.getY());

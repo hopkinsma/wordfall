@@ -61,10 +61,10 @@ public class AssetLoader {
 		levButton = new TextureRegion(levTexture, 0,0,250,80);
 		levButton.flip(false, true);
 		
-		gameOverButton = new TextureRegion(gameOverTexture, 0, 0, 250, 80);
+		wordBubbles = new TextureRegion[25];
 		gameOverButton.flip(false,  true);
 		
-		satellite = new TextureRegion(satTexture, 0, 0, 125, 100);
+		for (int i = 0; i < 25; i++) {
 		satellite.flip(false, true);
 		
 		wordBubbles = new TextureRegion[26][2];
