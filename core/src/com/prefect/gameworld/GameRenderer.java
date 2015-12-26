@@ -29,6 +29,8 @@ public class GameRenderer {
 	private Sprite lettersSelected[];
 	private Sprite smLetters[];
 	private Sprite dispLetters[];
+
+	//down where?
 	
 	private static int gameHeight;
 	private static int gameWidth;
