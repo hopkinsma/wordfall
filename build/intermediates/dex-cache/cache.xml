@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="A:\Development\DezNutz\wordfall\core\build\libs\core-1.0.jar"
+        jar="A:\Development\wordfall\core\build\libs\core-1.0.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="49acab70e70f116c1babe5e1605a11c1b0c335ab">
-        <dex dex="A:\Development\DezNutz\wordfall\android\build\intermediates\pre-dexed\debug\core-1.0-54665d94494632ac322c05a66dd7aed34b5834a0.jar" />
+        sha1="9444766720dd7de226e30bd56036f34cdd8de704">
+        <dex dex="A:\Development\wordfall\android\build\intermediates\pre-dexed\debug\core-1.0-140b0b7a9a5985c5abf288e2173177eb2056177f.jar" />
     </item>
 
 </items>

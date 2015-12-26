@@ -89,7 +89,7 @@ public class GameRenderer {
 		
 		
 		cam = new OrthographicCamera();
-		cam.setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		cam.setToOrtho(true);
 
 		viewport = new FillViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), cam);
 		viewport.apply();
@@ -137,6 +137,7 @@ public class GameRenderer {
         //if (GameWorld.startScreen) {
         	//batcher.draw(bg, 0, 0, 640, 480);
         	//all of the following ratios are determined by these screen settings
+        bg.setSize(1f, 1f * bg.getHeight() / bg.getWidth());
         batcher.draw(bg, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         	
         //bg.setPosition(0, 0);
