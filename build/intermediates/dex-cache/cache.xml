@@ -2,11 +2,74 @@
 <items version="2" >
 
     <item
-        jar="A:\Development\wordfall\core\build\libs\core-1.0.jar"
+        jar="A:\Development\DezNutz\wordfall\core\build\libs\core-1.0.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="9444766720dd7de226e30bd56036f34cdd8de704">
-        <dex dex="A:\Development\wordfall\android\build\intermediates\pre-dexed\debug\core-1.0-140b0b7a9a5985c5abf288e2173177eb2056177f.jar" />
+        sha1="49acab70e70f116c1babe5e1605a11c1b0c335ab">
+        <dex dex="A:\Development\DezNutz\wordfall\android\build\intermediates\pre-dexed\debug\core-1.0-54665d94494632ac322c05a66dd7aed34b5834a0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Zach\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-backend-android\1.7.1\454871d4783564f17959bf9247660e7f56ecc4ab\gdx-backend-android-1.7.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="454871d4783564f17959bf9247660e7f56ecc4ab">
+        <dex dex="C:\Users\Zach\Dev\Wordfall\android\build\intermediates\pre-dexed\debug\gdx-backend-android-1.7.1-29be50febc15508be6dcb3889988cbefd2333861.jar" />
+    </item>
+    <item
+        jar="C:\Users\Zach\Dev\Wordfall\core\build\libs\core-1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="cb0be3c9837502e129595841f4a8e6a2c15667e4">
+        <dex dex="C:\Users\Zach\Dev\Wordfall\android\build\intermediates\pre-dexed\debug\core-1.0-4ecf76beeaa9a592b62c2acb51d31b199529c983.jar" />
+    </item>
+    <item
+        jar="C:\Users\Zach\.gradle\caches\modules-2\files-2.1\net.dermetfan.libgdx-utils\libgdx-utils-box2d\0.13.1\cbc08bd9e488ac53ce9de3692525bec6e38b6811\libgdx-utils-box2d-0.13.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="cbc08bd9e488ac53ce9de3692525bec6e38b6811">
+        <dex dex="C:\Users\Zach\Dev\Wordfall\android\build\intermediates\pre-dexed\debug\libgdx-utils-box2d-0.13.1-5da735a4ed887c848beda76f41fb75855d6bc99d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Zach\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx\1.7.1\2179cc613447c297623a4a6d2ba6692c3aaff804\gdx-1.7.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2179cc613447c297623a4a6d2ba6692c3aaff804">
+        <dex dex="C:\Users\Zach\Dev\Wordfall\android\build\intermediates\pre-dexed\debug\gdx-1.7.1-77520063927e4ad58c9e7d70a165f25acf007538.jar" />
+    </item>
+    <item
+        jar="C:\Users\Zach\.gradle\caches\modules-2\files-2.1\net.dermetfan.libgdx-utils\libgdx-utils\0.13.1\9bbbd576ea6518e0441465261bfe10660b06beea\libgdx-utils-0.13.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="9bbbd576ea6518e0441465261bfe10660b06beea">
+        <dex dex="C:\Users\Zach\Dev\Wordfall\android\build\intermediates\pre-dexed\debug\libgdx-utils-0.13.1-b5a17f5d3430443f15c1395940a1f659677b5254.jar" />
+    </item>
+    <item
+        jar="C:\Users\Zach\.gradle\caches\modules-2\files-2.1\com.badlogicgames.box2dlights\box2dlights\1.4\3d77ad5b4164fb32fc67e2446e35911bb0aaf0bd\box2dlights-1.4.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3d77ad5b4164fb32fc67e2446e35911bb0aaf0bd">
+        <dex dex="C:\Users\Zach\Dev\Wordfall\android\build\intermediates\pre-dexed\debug\box2dlights-1.4-a1879bf7c867aba8f69ab529c9fb15ab4833fff1.jar" />
+    </item>
+    <item
+        jar="C:\Users\Zach\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-ai\1.6.0\a1a3b25a3485affab88be13ab8c1a920537f7d8c\gdx-ai-1.6.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a1a3b25a3485affab88be13ab8c1a920537f7d8c">
+        <dex dex="C:\Users\Zach\Dev\Wordfall\android\build\intermediates\pre-dexed\debug\gdx-ai-1.6.0-9ea2a8e2325521c64dc5e99b43d0e211b09d1eca.jar" />
+    </item>
+    <item
+        jar="C:\Users\Zach\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-box2d\1.7.1\fd23897393900f8f888222795e3229eff600fb3d\gdx-box2d-1.7.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="fd23897393900f8f888222795e3229eff600fb3d">
+        <dex dex="C:\Users\Zach\Dev\Wordfall\android\build\intermediates\pre-dexed\debug\gdx-box2d-1.7.1-5805a989eb0dea8d2d64455080c8379ea31e22ae.jar" />
+    </item>
+    <item
+        jar="C:\Users\Zach\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-controllers-android\1.7.1\28d5514b1b968a056e37239d1bceb1800a453f3e\gdx-controllers-android-1.7.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="28d5514b1b968a056e37239d1bceb1800a453f3e">
+        <dex dex="C:\Users\Zach\Dev\Wordfall\android\build\intermediates\pre-dexed\debug\gdx-controllers-android-1.7.1-36f9efb3bd1ab6dd25c2c34eb57afc008d0fc8b9.jar" />
     </item>
 
 </items>
